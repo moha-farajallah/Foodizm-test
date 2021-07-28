@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Intenso Commerce. All rights reserved.
+ * See License.txt for license details.
+ */
+-->
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/layout_generic.xsd">
+    <container name="root">
+        <block class="Intenso\Review\Block\Category\Summary" name="review_popover" template="Intenso_Review::helper/popover.phtml">
+            <block class="Intenso\Review\Block\Product\ReviewRenderer" name="product_review_histogram" as="histogram" template="Intenso_Review::category/histogram.phtml"/>
+        </block>
+    </container>
+</layout>

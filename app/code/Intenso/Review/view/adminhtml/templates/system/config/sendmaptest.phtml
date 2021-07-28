@@ -1,0 +1,66 @@
+<?php
+/**
+ * Copyright © Intenso Commerce. All rights reserved.
+ * See License.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/**
+ * @see \Intenso\Review\Block\Adminhtml\Map\System\Config\Sendmaptest
+ */
+?>
+<script>
+require(['prototype'], function(){
+
+//<![CDATA[
+    function sendMapTest() {
+        var validationMessage = $('map_validation_result'),
+            email = prompt('<?php /* @escapeNotVerified */ echo __('Please enter the email address') ?>');
+
+        if (email != null) {
+            if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,15})+$/.test(email)) {
+                validationMessage.removeClassName('hidden').addClassName('error')
+                validationMessage.update('<?php /* @escapeNotVerified */ echo __('Please enter a valid email address') ?>');
+                return false;
+            }
+            params = {
+                email: email
+            };
+
+            new Ajax.Request('<?php /* @escapeNotVerified */ echo $block->getAjaxUrl() ?>', {
+                parameters: params,
+                onSuccess: function(response) {
+                    var result = '<?php /* @escapeNotVerified */ echo __('Error while sending the test email.') ?>';
+                    try {
+                        if (response.responseText.isJSON()) {
+                            response = response.responseText.evalJSON();
+                            result = response.message;
+                        }
+                        if (response.valid == 1) {
+                            validationMessage.removeClassName('hidden').addClassName('success')
+                        } else {
+                            validationMessage.removeClassName('hidden').addClassName('error')
+                        }
+                    } catch (e) {
+                        validationMessage.removeClassName('hidden').addClassName('error')
+                    }
+                    validationMessage.update(result);
+                }
+            });
+        }
+    }
+
+    window.sendMapTest = sendMapTest;
+//]]>
+
+});
+</script>
+<div class="actions actions-validate-vat">
+    <div id="map_validation_result" class="message-validation hidden"></div>
+    <button onclick="javascript:sendMapTest(); return false;" class="action-validate-vat" type="button" id="<?php echo $block->getHtmlId() ?>">
+        <span><?php echo $block->escapeHtml($block->getButtonLabel()) ?></span>
+    </button>
+</div>

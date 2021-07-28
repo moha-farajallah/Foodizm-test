@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Intenso Commerce. All rights reserved.
+ * See License.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="intenso_review_map_options_map_template" label="Intenso Reviews - Mail After Purchase" file="mail_after_purchase.html" type="html" module="Intenso_Review" area="frontend"/>
+    <template id="intenso_review_customer_email_options_review_published_template" label="Intenso Reviews - Review Published" file="review_published.html" type="html" module="Intenso_Review" area="frontend"/>
+    <template id="intenso_review_customer_email_options_review_comment_template" label="Intenso Reviews - Review Comment" file="review_comment.html" type="html" module="Intenso_Review" area="frontend"/>
+    <template id="intenso_review_owner_email_options_new_review_template" label="Intenso Reviews - New Review Notification" file="new_review_notification.html" type="html" module="Intenso_Review" area="frontend"/>
+    <template id="intenso_review_owner_email_options_new_comment_template" label="Intenso Reviews - New Comment Notification" file="new_comment_notification.html" type="html" module="Intenso_Review" area="frontend"/>
+    <template id="intenso_review_store_owner_comments_store_owner_reply_template" label="Intenso Reviews - Store Owner Comment" file="store_owner_comment.html" type="html" module="Intenso_Review" area="frontend"/>
+</config>

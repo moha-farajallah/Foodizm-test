@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<csp_whitelist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Csp:etc/csp_whitelist.xsd">
+    <policies>
+        <policy id="script-src">
+            <values>
+                <value id="gmo_live_token_js" type="host">p01.mul-pay.jp</value>
+                <value id="gmo_test_token_js" type="host">pt01.mul-pay.jp</value>
+                <value id="gmo_new_live_token_js" type="host">static.mul-pay.jp</value>
+                <value id="gmo_new_test_token_js" type="host">stg.static.mul-pay.jp</value>
+            </values>
+        </policy>
+    </policies>
+</csp_whitelist>

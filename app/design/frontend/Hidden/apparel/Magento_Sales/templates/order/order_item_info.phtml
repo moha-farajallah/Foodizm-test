@@ -1,0 +1,58 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<?php /** @var  $block \Magento\Sales\Block\Order\View*/?>
+<?php
+
+	$_order = $block->getOrder();
+	$_orderSubtotal = $_order->getSubtotal();
+	$_orderTax = $_order->getTaxAmount();
+	$_shippingAmt = $_order->getShippingAmount();
+	$_paymentFee =  $_order->getFeeAmount();
+	$_orderGrandTotal = $_order->getGrandTotal();
+	$_itemSKU = '';
+    
+?>
+<?php	
+	$orderItemInfo = '';
+	$orderTotalInfo = '';
+	foreach ($_order->getAllItems() as $item) {  
+		if($item->getProductType()=='configurable') {
+			$_itemSKU = $item->getSKU();
+			$_itemPriceInclTax = $item->getPriceInclTax();
+			$_itemTax = $item->getTaxAmount();
+			$_itemTotal = $item->getRowTotal();
+			$_itemTotalInclTax = $item->getRowTotal() + $item->getTaxAmount();
+
+		}
+		if(($item->getProductType()!='configurable')&&($item->getSKU()!=$_itemSKU)) {
+			$orderItemInfo =  $orderItemInfo . "商品番号：" . $item->getSKU() . "\r\n" .
+			"注文商品名：" . $item->getName() . "\r\n" .
+			"単価：￥" . number_format($item->getPriceInclTax()) . "\r\n" .
+			"数量：" . number_format($item->getQtyOrdered()) . "\r\n" .			
+			"小計：￥" . number_format($item->getRowTotal() + $item->getTaxAmount()) . "\r\n" .
+			"------------------------------------------------------------" . "\r\n" ;
+		}
+		elseif(($item->getProductType()!='configurable')&&($item->getSKU()==$_itemSKU)) {
+			$orderItemInfo = $orderItemInfo . "商品番号：" . $item->getSKU() . "\r\n" .
+			"注文商品名：" . $item->getName() . "\r\n" .
+			"単価：￥" . number_format($_itemPriceInclTax) . "\r\n" .
+			"数量：" .number_format($item->getQtyOrdered()) . "\r\n" .
+			"小計：￥" . number_format($_itemTotalInclTax) . "\r\n" .
+			"------------------------------------------------------------" . "\r\n" ;
+		}
+	}
+	$orderTotalInfo = $orderTotalInfo . "商品合計：￥" . number_format($_orderSubtotal) . "\r\n" . 
+	"税金：￥" . number_format($_orderTax) . "\r\n" . 
+	"送料：￥" . number_format($_shippingAmt) . "\r\n" . 
+	"手数料：￥" . number_format($_paymentFee) . "\r\n" . 
+	"その他費用：￥0" . "\r\n" .
+	"ポイント利用額：▲￥0" . "\r\n" .
+	"------------------------------------------------------------". "\r\n" .
+	"合計金額(税込)：￥" . number_format($_orderGrandTotal) . "\r\n" .
+	"------------------------------------------------------------";
+?>
+<?=$orderItemInfo . $orderTotalInfo ?>

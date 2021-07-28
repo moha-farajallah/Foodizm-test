@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Intenso Commerce. All rights reserved.
+ * See License.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Intenso_Review::catalog_reviews_comments_all" title="Comments" module="Intenso_Review" parent="Magento_Backend::marketing_user_content" sortOrder="20" action="intenso_review/comment/index" resource="Intenso_Review::review_manage"/>
+        <add id="Intenso_Review::map_log" title="Mail After Purchase Log" module="Intenso_Review" parent="Magento_Backend::marketing_communications" sortOrder="60" action="intenso_review/maplog/index" resource="Intenso_Review::maplog_manage"/>
+    </menu>
+</config>

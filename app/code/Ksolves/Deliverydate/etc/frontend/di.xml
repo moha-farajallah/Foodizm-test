@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+ <!-- **
+ * @category   Ksolves
+ * @package    Ksolves_Deliverydate
+ * @author     Ksolves Team
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Checkout\Model\CompositeConfigProvider">
+        <arguments>
+            <argument name="configProviders" xsi:type="array">
+                <item name="ks_deliverydate_checkout_config_provider" xsi:type="object">Ksolves\Deliverydate\Model\Checkout\CheckoutConfigProvider</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Customer\Block\SectionConfig">
+        <arguments>
+            <argument name="clientSideSections" xsi:type="array">
+                <item name="ksdd-data" xsi:type="string">ksdd-data</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

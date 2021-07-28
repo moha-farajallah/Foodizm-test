@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <type name="Magento\Payment\Model\CcGenericConfigProvider">
+        <arguments>
+            <argument name="methodCodes" xsi:type="array">
+                <item name="veritegmo_cc" xsi:type="const">Veriteworks\Gmo\Model\Method\Cc::CODE</item>
+                <item name="veritegmo_ccmulti" xsi:type="const">Veriteworks\Gmo\Model\Method\CcMulti::CODE</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Checkout\Model\CompositeConfigProvider">
+        <arguments>
+            <argument name="configProviders" xsi:type="array">
+                <item name="veritegmo_config_ccprovider" xsi:type="object">Veriteworks\Gmo\Model\Config\CcProvider</item>
+                <item name="veritegmo_config_ccmultiprovider" xsi:type="object">Veriteworks\Gmo\Model\Config\CcMultiProvider</item>
+                <item name="veritegmo_config_cvsprovider" xsi:type="object">Veriteworks\Gmo\Model\Config\CvsProvider</item>
+                <item name="veritegmo_config_atmprovider" xsi:type="object">Veriteworks\Gmo\Model\Config\AtmProvider</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+ <!-- **
+ * @category   Ksolves
+ * @package    Ksolves_Deliverydate
+ * @author     Ksolves Team
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="ksolves" translate="label" sortOrder="1">
+            <label>Ksolves</label>
+        </tab>
+        <section id="ks_deliverydate" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Delivery Date</label>
+            <tab>ksolves</tab>
+            <resource>Ksolves_Deliverydate::config_deliverydate</resource>
+            <!-- General Section Management -->
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+
+                <field id="ksolves_deliverydate_general_deliverydate_enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable Deliverydate On Frontend</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>`Enable ScheduleShipping` setting.</comment>
+                </field>
+
+                <field id="ksolves_deliverydate_general_deliverydate_label" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Label for Delivery Date</label>
+                </field>
+
+                <field id="ksolves_show_today_date" translate="label" type="select" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Same Day Delivery Avilable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                
+                <field id="ksolves_deliverydate_general_deliverytimeslot_enable" translate="label" type="select" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable Delivery TimeSlot</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="ksolves_deliverydate_general_deliverytimeslot_label" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Label for Delivery TimeSlot</label>
+                </field>
+
+                <field id="ksolves_deliverydate_general_deliverycomment_enable" translate="label" type="select" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable Delivery Comment</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="ksolves_deliverydate_general_deliverycomment_label" translate="label" type="text" sortOrder="7" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Label for Delivery Date Comments</label>
+                </field>
+
+                 <field id="ksolves_deliverydate_date_format" translate="label comment" sortOrder="8" type="select" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Date Format in the DatePicker</label>
+                    <source_model>Ksolves\Deliverydate\Model\Adminhtml\Source\DeliveryTime</source_model>
+                    <!-- <comment>Select the date format used for delivery date.</comment> -->
+                </field>
+            </group>
+            <!-- General Section Management -->
+
+            <!-- Time Slot Management -->
+            <group id="time_slot" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Time Slot Setting</label>
+               
+                <field id="ksolves_deliverydate_calendar_timeslot_add_timeslot" translate="label" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Add Timeslot</label>
+                    <frontend_model>Ksolves\Deliverydate\Block\Adminhtml\Form\Field\AddTimeSlot</frontend_model>
+                    <backend_model>Ksolves\Deliverydate\Model\Adminhtml\System\Config\Backend\AddTimeSlot</backend_model>
+                </field>
+
+                <field id="ksolves_deliverydate_calendar_timeslot_disable_timeslot" translate="label" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Disable Time Slot of Day</label>
+                    <frontend_model>Ksolves\Deliverydate\Block\Adminhtml\Form\Field\DisableTimeSlot</frontend_model>
+                    <backend_model>Ksolves\Deliverydate\Model\Adminhtml\System\Config\Backend\DisableTimeSlot</backend_model>
+                    <comment>Add the same timeslot option just like Add Timeslot tab</comment>
+                </field>
+                
+            </group>
+
+            <!-- Holiday Management -->
+            <group id="holiday" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Holiday Management</label>
+
+                <field id="ksolves_deliverydate_holiday_dayoff" translate="label" type="multiselect" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Day Off</label>
+                    <source_model>Ksolves\Deliverydate\Model\Adminhtml\Source\AllowedDays</source_model>
+                </field>
+
+                <field id="ksolves_deliverydate_holiday_excludedates" translate="label" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Exclude Dates from Delivery Date</label>
+                    <frontend_model>Ksolves\Deliverydate\Block\Adminhtml\Form\Field\DatePickerList</frontend_model>
+                    <backend_model>Ksolves\Deliverydate\Model\Adminhtml\System\Config\Backend\DatePickerList</backend_model>
+                    <comment>These dates will be excluded from delivery date</comment>
+                </field>
+            <!-- Holiday Management -->
+            </group>
+        </section>
+    </system>
+</config>

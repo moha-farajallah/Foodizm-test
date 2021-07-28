@@ -1,0 +1,41 @@
+<?php
+/**
+ * Copyright © Intenso Commerce. All rights reserved.
+ * See License.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+$helper = $this->helper(\Intenso\Review\Helper\Data::class);
+$_items = $block->getCommentsCollection()->getItems();
+$_storeOwnerComment = $block->getStoreOwnerComment();
+?>
+<?php if ($_storeOwnerComment && $_storeOwnerComment->getType() == '0'): ?>
+    <div class="intenso-comment-bubble intenso-arrow-box store-owner-comment">
+        <div class="author">
+            <?= __('By')?> <span><?= $block->escapeHtml($helper->getStoreOwnerDisplayName()); ?></span>
+            <?= __('on')?>
+            <time datetime="<?= date('c', strtotime($_storeOwnerComment->getCreatedAt())); ?>" itemprop="datePublished"><?= $block->formatDate($_storeOwnerComment->getCreatedAt(), \IntlDateFormatter::LONG); ?></time>
+        </div>
+        <div class="comment-text">
+            <?= $block->escapeHtml($_storeOwnerComment->getText()); ?>
+        </div>
+    </div>
+<?php endif; ?>
+<?php if (count($_items)):?>
+    <?php foreach ($_items as $item): ?>
+        <div class="intenso-comment-bubble intenso-arrow-box">
+            <div class="author">
+                <?= __('By')?> <span><?= $block->escapeHtml($item->getNickname()); ?></span>
+                <?= __('on')?>
+                <time datetime="<?= date('c', strtotime($item->getCreatedAt())); ?>" itemprop="datePublished"><?= $block->formatDate($item->getCreatedAt(), \IntlDateFormatter::LONG); ?></time>
+            </div>
+            <div class="comment-text">
+                <?= $block->escapeHtml($item->getText()); ?>
+            </div>
+        </div>
+    <?php endforeach;?>
+<?php endif; ?>
+<a class="comments add-comment" href="#" data-review-id="<?= $block->getReviewId()?>"><?= __('Comment')?></a><a class="hide-comments" href="#"><?= __('Hide comments')?></a>

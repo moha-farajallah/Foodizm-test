@@ -1,0 +1,201 @@
+<?php
+/**
+ * Copyright © Intenso Commerce. All rights reserved.
+ * See License.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+    $helper = $this->helper(\Intenso\Review\Helper\Data::class);
+    $_items = $block->getReviewsCollection()->getItems();
+    $image = $this->helper(\Intenso\Review\Helper\Image::class);
+    $format = $block->getDateFormat() ?: \IntlDateFormatter::MEDIUM;
+?>
+<div class="toolbar review-toolbar">
+    <?= $block->getChildHtml('toolbar') ?>
+</div>
+<?php if (count($_items)): ?>
+    <ol class="items review-items">
+    <?php foreach ($_items as $_review): ?>
+        <?php
+            $_storeOwnerComment = $block->getStoreOwnerComment($_review->getId());
+            $_commentCount = $_review->getComments();
+            if ($_storeOwnerComment && $_storeOwnerComment->getType() == 0) {
+                $_commentCount++;
+            }
+        ?>
+        <li class="item review-item" itemscope itemprop="review" itemtype="http://schema.org/Review">
+            <div class="help-count">
+                <?php if ($_review->getHelpful() == 1): ?>
+                    <?= __('%1 person found the following review helpful', $_review->getHelpful()); ?>
+                <?php elseif ($_review->getHelpful() > 1): ?>
+                    <?= __('%1 people found the following review helpful', $_review->getHelpful()); ?>
+                <?php endif; ?>
+            </div>
+            <?php if ($_review->getRatingSummary()): ?>
+            <div class="review-ratings">
+                <div class="rating-summary item" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+                    <div class="rating-result" title="<?php /* @escapeNotVerified */ echo $_review->getRatingSummary() ?>%">
+                        <meta itemprop="worstRating" content = "1"/>
+                        <meta itemprop="bestRating" content = "100"/>
+                        <span style="width:<?php /* @escapeNotVerified */ echo $_review->getRatingSummary() ?>%">
+                            <span itemprop="ratingValue"><?php /* @escapeNotVerified */ echo $_review->getRatingSummary() ?>%</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <?php endif; ?>
+            <div class="review-title" itemprop="name"><?= $block->escapeHtml($_review->getTitle()) ?></div>
+            <div class="review-details">
+                <p class="review-author">
+                    <span class="review-details-label"><?php /* @escapeNotVerified */ echo __('By') ?></span>
+                    <strong class="review-details-value author" itemprop="author"><?= $block->escapeHtml($_review->getNickname()) ?></strong>
+                </p>
+                <p class="review-date">
+                    <span class="review-details-label"><?php /* @escapeNotVerified */ echo __('on') ?></span>
+                    <time class="review-details-value date" itemprop="datePublished" datetime="<?php /* @escapeNotVerified */ echo date('c', strtotime($_review->getCreatedAt())) ?>"><?php /* @escapeNotVerified */ echo $block->formatDate($_review->getCreatedAt(), $format) ?></time>
+                </p>
+                <?php if ($_review->getVerifiedPurchase() && $block->canShowVerifiedPurchaseBadge()): ?>
+                <p class="verified-purchase">
+                    <span class="verified-purchase-icon"></span><?php /* @escapeNotVerified */ echo __('Verified Purchase') ?>
+                </p>
+                <?php endif; ?>
+            </div>
+            <div class="review-content review-<?= $_review->getId(); ?>" itemprop="description">
+                <?= nl2br($block->escapeHtml($_review->getDetail())) ?>
+            </div>
+            <?php if ($block->canUploadPhotos() && $block->getReviewsPhotos($_review->getId())->count()): ?>
+            <ul class="itactica-review-photo-preview">
+                <?php foreach ($block->getReviewsPhotos($_review->getId()) as $photo): ?>
+                <li data-file="<?= $image->resize($photo->getFile(), 1200); ?>">
+                    <img src="<?= $image->resize($photo->getFile(), 256); ?>" height="60">
+                </li>
+                <?php endforeach; ?>
+            </ul>
+            <?php endif; ?>
+            <div class="review-actions vote-review-id-<?= $_review->getId() ?>">
+                <?php if ($_commentCount == 1): ?>
+                    <a class="comment show-comments" href="#" data-review-id="<?= $_review->getId()?>"><?= __('%1 Comment', $_commentCount);?></a>
+                <?php elseif ($_commentCount > 1): ?>
+                    <a class="comment show-comments" href="#" data-review-id="<?= $_review->getId()?>"><?= __('%1 Comments', $_commentCount);?></a>
+                <?php else: ?>
+                    <a class="comment add-comment" href="#" data-review-id="<?= $_review->getId() ?>"><?= __('Comment');?></a>
+                <?php endif; ?>
+                <span class="voting-container">
+                    <span class="voting-buttons-<?= $_review->getId()?>">
+                        <?= __('Was this review helpful to you?');?>
+                        <button class="helpful-button helpful" type="submit" data-helpful="true" data-review-id="<?= $_review->getId()?>"><?= __('Yes')?></button>
+                        <button class="helpful-button not-helpful" type="submit" data-helpful="false" data-review-id="<?= $_review->getId()?>"><?= __('No')?></button>
+                    </span>
+                    <span class="alert-inline-success"><?= __('Thank you for your feedback!'); ?></span>
+                    <span class="alert-inline-duplicated"><?= __('You already voted'); ?></span>
+                    <span class="alert-inline-error"><?= __('Sorry, we failed to record your vote. Please try again'); ?></span>
+                </span>
+            </div>
+            <?php if ($_storeOwnerComment && $_storeOwnerComment->getType() == 0 && $block->isDisplayInExpandedMode()): ?>
+                <div class="comments-wrapper-<?= $_review->getId()?>">
+                    <div class="intenso-comment-bubble intenso-arrow-box store-owner-comment">
+                        <div class="author">
+                            <?= __('By')?> <span><?= $block->escapeHtml($helper->getStoreOwnerDisplayName()); ?></span>
+                            <?= __('on')?>
+                            <time datetime="<?= date('c', strtotime($_storeOwnerComment->getCreatedAt())); ?>" itemprop="datePublished"><?= $block->formatDate($_storeOwnerComment->getCreatedAt(), \IntlDateFormatter::LONG); ?></time>
+                        </div>
+                        <div class="comment-text">
+                            <?= $block->escapeHtml($_storeOwnerComment->getText()); ?>
+                        </div>
+                    </div>
+                    <a class="comments add-comment" href="#" data-review-id="<?= $_review->getId() ?>"><?= __('Comment')?></a>
+                    <?php if ($_commentCount > 1):?>
+                        <a href="#" class="comments show-comments view-all-comments" data-review-id="<?= $_review->getId(); ?>"><?= __('View all comments') ?></a>
+                    <?php endif; ?>
+                </div>
+            <?php else: ?>
+                <div class="comments-wrapper-<?= $_review->getId()?>"></div>
+            <?php endif; ?>
+        </li>
+        <?php
+        if ((int)$block->getNumberOfWords() > 0) {
+            $viewMore[] = $_review->getId();
+        }
+        ?>
+    <?php endforeach; ?>
+    </ol>
+    <div class="toolbar review-toolbar bottom">
+        <?= $block->getChildHtml('toolbar'); ?>
+    </div>
+    <div class="customer-photos-modal"></div>
+    <script type="text/x-magento-init">
+        {
+            "*": {
+                "Intenso_Review/js/intenso-review": {
+                    <?php if ((int)$block->getNumberOfWords() > 0 && count($_items) > 0): ?>
+                    "viewMore": [<?=  implode(",", $viewMore); ?>],
+                    "viewMoreLimit": <?= (int)$block->getNumberOfWords(); ?>
+                    <?php endif; ?>
+                }
+            }
+        }
+    </script>
+    <?php if ($block->canUploadPhotos()): ?>
+    <script>
+        require([
+            'jquery',
+            'slick',
+            'Magento_Ui/js/modal/modal'
+        ], function($) {
+            var $modal = $('.customer-photos-modal');
+            $(function () {
+                $('.itactica-review-photo-preview').on('click', 'li', function() {
+                    $('.customer-photos-review').remove();
+                    $('.customer-photos-slider').remove();
+                    $modal.append($('<div/>', {'class' : 'customer-photos-review'}));
+                    $modal.append($('<div/>', {'class' : 'customer-photos-slider'}));
+                    $(this).parent().find('li').each(function(index) {
+                        $('.customer-photos-slider').append(
+                            '<div><img src="' + $(this).attr('data-file') + '" width="100%"></div>'
+                        );
+                    });
+                    $(this).parent().siblings('.review-ratings').clone().appendTo('.customer-photos-review');
+                    $(this).parent().siblings('.review-title').clone().appendTo('.customer-photos-review');
+                    $(this).parent().siblings('.review-details').clone().appendTo('.customer-photos-review');
+                    $modal.modal('openModal');
+                });
+                $modal.modal({
+                    type: 'popup',
+                    modalClass: 'intenso-modal intenso-review-photo-modal',
+                    autoOpen: false,
+                    responsive: true,
+                    innerScroll: true,
+                    clickableOverlay: true,
+                    title: '<?= __('Customer Photos'); ?>',
+                    buttons: [{
+                        text: '<?= __('Close'); ?>',
+                        class: 'intenso-close-button',
+                        click: function () {
+                            this.closeModal();
+                        }
+                    }],
+                    opened: function(event) {
+                        var $slider = $('.customer-photos-slider');
+                        if ($slider.hasClass('slick-initialized')) {
+                            $slider.slick('unslick');
+                        }
+                        $slider.slick({
+                            dots: true,
+                            infinite: false
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+    <?php endif; ?>
+<?php else: ?>
+    <div class="review-list-no-results">
+        <?= __('Sorry, no reviews match your current selections'); ?>
+        <span><?= __('Try clearing or changing some filters.'); ?> <a href="<?= $block->getReviewsUrl(true); ?>">
+            <?= __('Show all reviews'); ?></a></span>
+    </div>
+<?php endif ;?>

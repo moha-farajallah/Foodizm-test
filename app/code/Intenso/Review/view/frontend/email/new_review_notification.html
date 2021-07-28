@@ -1,0 +1,37 @@
+<!--
+/**
+ * Copyright © Intenso Commerce. All rights reserved.
+ * See License.txt for license details.
+ */
+-->
+<!--@subject {{trans "New review at %store_name" store_name=$store.getFrontendName()}} @-->
+<!--@vars {
+"var review.getProductName()":"Product Name",
+"var review.getNickname()":"Review Author Nickname",
+"var review.getCustomerEmail()":"Review Author Email",
+"var review.getDetail()":"Review Detail",
+"var review.getStatus()":"Review Status",
+"var review.getEditReviewUrl()":"Edit Comment URL",
+"var store.getFrontendName()":"Store Name"
+} @-->
+
+{{template config_path="design/email/header_template"}}
+
+<table>
+    <tr class="email-intro">
+        <td>
+            <p class="greeting">{{trans "New review notification.}}</p>
+            <p>
+                {{trans "A new review for %product_name has been received." product_name=$review.getProductName()}}
+            </p>
+            <p>
+                {{trans "Review from"}} <strong>{{var review.getNickname() }}</strong>:
+                <br>
+                <i>{{var review.getDetail()}}</i>
+            </p>
+            <p>
+                {{trans "The status of this review is: %status" status=$review.getStatus()}} (<a href="{{var review.getEditReviewUrl()}}">{{trans "Manage review"}}</a>)
+            </p>
+        </td>
+    </tr>
+</table>

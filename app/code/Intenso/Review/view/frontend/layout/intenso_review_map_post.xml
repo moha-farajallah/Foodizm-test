@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Intenso Commerce. All rights reserved.
+ * See License.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Intenso_Review::css/intenso-review.css"/>
+    </head>
+    <body>
+        <referenceBlock name="page.main.title">
+            <action method="setPageTitle">
+                <argument translate="true" name="title" xsi:type="string">Please write a review</argument>
+            </action>
+        </referenceBlock>
+        <referenceContainer name="content">
+            <block class="Intenso\Review\Block\Map\Post" name="review_map_form" template="Intenso_Review::map/form.phtml" cacheable="false">
+                <container name="product.review.form.fields.before" as="form_fields_before" label="Review Form Fields Before"/>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

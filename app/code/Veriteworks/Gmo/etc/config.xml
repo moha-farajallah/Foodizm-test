@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <payment>
+            <veritegmo_cc>
+                <model>Veriteworks\Gmo\Model\Method\Cc</model>
+                <active>0</active>
+                <title>Gmo Payment Gateway Credit Card Payment</title>
+                <useccv>0</useccv>
+                <cctypes>VI,MC,JCB,DN,AE</cctypes>
+                <split_count>2</split_count>
+                <payment_type>1</payment_type>
+                <use_token>1</use_token>
+                <use_3dsecure>1</use_3dsecure>
+                <min_order_total>0</min_order_total>
+                <max_order_total>1000000</max_order_total>
+                <order_status>0</order_status>
+                <payment_action>authorize</payment_action>
+                <order_status>processing</order_status>
+                <sort_order>21</sort_order>
+            </veritegmo_cc>
+            <veritegmo_ccmulti>
+                <model>Veriteworks\Gmo\Model\Method\CcMulti</model>
+                <active>0</active>
+                <title>Gmo Payment Gateway Credit Card Multi Currency Payment</title>
+                <useccv>1</useccv>
+                <use_token>1</use_token>
+                <use_3dsecure>1</use_3dsecure>
+                <cctypes>VI,MC,JCB,DN,AE</cctypes>
+                <min_order_total>0</min_order_total>
+                <max_order_total>1000000</max_order_total>
+                <order_status>0</order_status>
+                <payment_action>authorize</payment_action>
+                <order_status>processing</order_status>
+                <sort_order>22</sort_order>
+            </veritegmo_ccmulti>
+            <veritegmo_cvs>
+                <model>Veriteworks\Gmo\Model\Method\Cvs</model>
+                <active>0</active>
+                <title>Gmo Payment Gateway CVS Payment</title>
+                <cvstypes>00001,00002,00003,00004,00005,00006,00007</cvstypes>
+                <payment_action>order</payment_action>
+                <min_order_total>1</min_order_total>
+                <max_order_total>300000</max_order_total>
+                <order_status>pending_payment</order_status>
+                <order_state>pending_payment</order_state>
+                <payment_action>order</payment_action>
+            </veritegmo_cvs>
+            <veritegmo_atm>
+                <model>Veriteworks\Gmo\Model\Method\Atm</model>
+                <active>0</active>
+                <title>Gmo Payment Gateway Pay-easy Payment</title>
+                <payment_action>order</payment_action>
+                <min_order_total>1</min_order_total>
+                <max_order_total>300000</max_order_total>
+                <order_status>pending_payment</order_status>
+                <order_state>pending_payment</order_state>
+                <payment_action>order</payment_action>
+            </veritegmo_atm>
+        </payment>
+    </default>
+</config>

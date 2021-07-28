@@ -1,0 +1,34 @@
+{
+  "name": "veriteworks/m2-japaneselocale",
+  "description": "Japanese Language Pack for Magento2",
+  "keywords": [
+    "magento2",
+    "translation"
+  ],
+  "type": "magento2-language",
+  "version": "1.3.2",
+  "license": [
+    "OSL-3.0",
+    "AFL-3.0"
+  ],
+  "authors":[
+    {
+      "name": "Hirokazu Nishi",
+      "email": "nishi@veriteworks.co.jp",
+      "homepage": "https://veriteworks.co.jp/",
+      "role": "developer"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/HirokazuNishi/m2-japaneselocale/issues",
+    "source": "https://github.com/HirokazuNishi/m2-japaneselocale"
+  },
+  "require": {
+    "magento/framework": "*"
+  },
+  "autoload": {
+    "files": [
+      "registration.php"
+    ]
+  }
+}

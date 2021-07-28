@@ -1,0 +1,66 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<?php /** @var  $block \Magento\Sales\Block\Order\View*/?>
+<?php
+	$_order = $block->getOrder();
+	$_shippingaddress = $_order->getShippingAddress();
+	$_payment = $_order->getPayment();
+    $_method = $_payment->getMethodInstance();
+    $_methodTitle = $_method->getTitle();
+	$_deliveryInfo = json_decode($_order->getKsDeliveryInfo());
+
+	switch ($_shippingaddress->getData("country_id")) {
+		case 'JP':
+			$_country = '日本';
+			break;
+		case null:
+			$_country = $_shippingaddress->getData("country_id");
+			break;
+	}
+
+	/*
+	$_deliveryDate = date('Y-m-d',(strtotime($_deliveryInfo->ksDeliveryDate)));
+	$_deliveryYear = date('Y', strtotime($_deliveryDate));
+	$_deliveryMonth = date('m', strtotime($_deliveryDate));
+	$_deliveryDay = date('d', strtotime($_deliveryDate));
+	$_preferredDeliveryDate = $_deliveryYear.'年'.$_deliveryMonth.'月'.$_deliveryDay.'日';
+	if($_preferredDeliveryDate=='1970年01月01日'){
+		$_preferredDeliveryDate='指定なし';
+	}
+	*/
+
+	$_preferredDeliveryDate='指定なし';
+	switch ($_deliveryInfo->ksDeliverydateTimeSlot) {
+		case '08:00AM-12:00PM':
+			$_preferredDeliveryTime = '午前中';
+			break;
+		case '12:00PM-02:00PM':
+			$_preferredDeliveryTime = '12-14時';
+			break;
+		case '02:00PM-04:00PM':
+			$_preferredDeliveryTime = '14-16時';
+			break;
+		case '04:00PM-06:00PM':
+			$_preferredDeliveryTime = '16-18時';
+			break;
+		case '06:00PM-09:00PM':
+			$_preferredDeliveryTime = '18-21時';
+			break;
+		case null:
+			$_preferredDeliveryTime = '指定なし';
+			break;
+	}
+
+$shippingInfo = "　送付先1氏名：" . $_shippingaddress->getData("lastname") . ' '. $_shippingaddress->getData("firstname") . "\r\n" .
+"　送付先1氏名（フリガナ）：" . "\r\n" . 
+"　送付先1郵便番号：" . $_shippingaddress->getData("postcode") . "\r\n" .
+"　送付先1住所：" . $_shippingaddress->getData("region") . $_shippingaddress->getData("city") . $_shippingaddress->getData("street") . "\r\n" . 
+"　送付先1電話番号：" . $_shippingaddress->getData("telephone"). "\r\n" . 
+"　送付先1お届け方法：" . str_replace('お支払方法','', str_replace('Bank Transfer Payment','',$_methodTitle)). "\r\n" .
+"　送付先1お届け希望日：" . $_preferredDeliveryDate. "\r\n" .
+"　送付先1お届け希望時間：" . $_preferredDeliveryTime;?>
+<?=$shippingInfo?>

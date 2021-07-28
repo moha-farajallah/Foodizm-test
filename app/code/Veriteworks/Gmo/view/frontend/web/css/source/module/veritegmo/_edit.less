@@ -1,0 +1,46 @@
+& when (@media-common = true) {
+    .form-edit-card {
+        fieldset {
+            .field {
+                width: 225px;
+
+                .fields > .year {
+                    padding-left: 5px;
+                }
+
+                .cvv {
+                    width: 55px;
+                }
+            }
+        }
+    }
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .form-edit-card {
+        fieldset {
+            .field {
+                width: 225px;
+            }
+        }
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .form-edit-card {
+        fieldset {
+            .field {
+                width: 225px;
+            }
+        }
+    }
+
+}

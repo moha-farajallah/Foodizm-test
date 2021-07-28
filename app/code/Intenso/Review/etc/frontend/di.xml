@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Intenso Commerce. All rights reserved.
+ * See License.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- extends \Magento\Review\Block\Product\ReviewRenderer to add additional methods -->
+    <preference for="Magento\Review\Block\Product\ReviewRenderer" type="Intenso\Review\Block\Product\ReviewRenderer" />
+
+    <!-- extends \Magento\Review\Block\Product\Review to add additional methods -->
+    <preference for="Magento\Review\Block\Product\Review" type="Intenso\Review\Block\Product\Review" />
+
+    <!-- extends \Magento\Review\Model\ResourceModel\Review\Collection to add additional methods -->
+    <preference for="Magento\Review\Model\ResourceModel\Review\Collection" type="Intenso\Review\Model\ResourceModel\Review\Collection" />
+
+    <!-- rewrite Magento\Review\Controller\Product\Post controller to add AJAX capability -->
+    <preference for="Magento\Review\Controller\Product\Post" type="Intenso\Review\Controller\Product\Post" />
+
+    <!-- plugin to set cache tags per each review item instead of a single cache tag per review block -->
+    <type name="Magento\Review\Model\Review">
+        <plugin name="IntensoReviewIdentity" type="\Intenso\Review\Model\Plugin\Review" />
+    </type>
+</config>

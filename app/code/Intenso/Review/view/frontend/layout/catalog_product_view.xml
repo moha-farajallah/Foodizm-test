@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Intenso Commerce. All rights reserved.
+ * See License.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="review_product_form_component"/>
+    <head>
+        <css src="Intenso_Review::css/intenso-review.css"/>
+    </head>
+    <body>
+        <referenceBlock name="category_review_summary_js" remove="true"/>
+        <referenceBlock name="reviews.tab">
+            <action method="setTemplate">
+                <argument name="template" xsi:type="string">Intenso_Review::review.phtml</argument>
+            </action>
+            <block class="Intenso\Review\Block\Product\View\ListView" name="intenso.reviews.tab" as="intenso_reviews" template="Intenso_Review::product/view/list.phtml">
+                <block class="Intenso\Review\Block\Product\ReviewRenderer" name="product_review_histogram" as="histogram" template="Intenso_Review::product/view/histogram.phtml"/>
+                <block class="Intenso\Review\Block\Comment\AddComment" name="review_comment_form" as="comment_form" template="Intenso_Review::comment/form.phtml" />
+            </block>
+        </referenceBlock>
+        <referenceBlock name="product.info.details">
+            <block class="Magento\Framework\View\Element\FormKey" name="formkey"/>
+        </referenceBlock>
+        <!-- override template of review form in product page to display it as a modal popup -->
+        <referenceBlock name="product.review.form">
+            <action method="setTemplate">
+                <argument name="template" xsi:type="string">Intenso_Review::form.phtml</argument>
+            </action>
+        </referenceBlock>
+    </body>
+</page>

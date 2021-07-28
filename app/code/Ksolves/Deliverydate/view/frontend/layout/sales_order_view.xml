@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+ <!-- **
+ * @category   Ksolves
+ * @package    Ksolves_Deliverydate
+ * @author     Ksolves Team
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * -->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="content">
+            <block class="Ksolves\Deliverydate\Block\Sales\Order\View\DeliveryDateInfo" name="ks_deliverydate_info_frontend" template="sales/order/view/ks-deliverydate-info.phtml" after="sales.order.info"/>
+        </referenceBlock>
+    </body>
+</page>

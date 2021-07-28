@@ -1,0 +1,29 @@
+<?php
+/**
+ * @var \Veriteworks\Gmo\Block\Form\Cc $block
+ */
+$code = $block->escapeHtml($block->getMethodCode());
+$cards = $block->getRegisteredCards();
+?>
+<fieldset class="admin__fieldset payment-method"
+          id="payment_form_<?= $block->escapeHtmlAttr($code); ?>" style="display: none;">
+    <div class="field-type admin__field _required">
+        <?php if (count($cards) > 0): ?>
+            <select id="<?= $block->escapeHtmlAttr($code); ?>_use_card"
+                    name="payment[use_card]" data-validate='{
+                        required:true
+                    }'
+                    class="select">
+            <?php foreach ($cards as $_card): ?>
+                <option value="<?= $block->escapeHtml($_card['customer_card_id']) ?>">
+                    <?= $block->escapeHtml($_card['card_number']) ?>
+                    <?= $block->escapeHtml($_card['card_valid_term']) ?>
+                </option>
+            <?php endforeach; ?>
+            </select>
+            <input type="hidden" name="payment[is_use_card]" value="1" />
+        <?php endif;?>
+    </div>
+
+    <?= $block->getChildHtml() ?>
+</fieldset>

@@ -1,0 +1,259 @@
+IDs ,Eng,JP
+Previous,Previous,??
+Save and Previous,Save and Previous,?????
+Save and Next,Save and Next,?????
+Next,Next,??
+Save Comment,Save Comment,???????
+Delete Comment,Delete Comment,???????
+Edit Comment '%1',Edit Comment '%1',???? '%1' ???
+Comment Details,Comment Details,??????
+Review,Review,????
+Product,Product,??
+"<a href=""%1"" onclick=""this.target='blank'"">%2 %3</a> <a href=""mailto:%4"">(%4)</a>","<a href=""%1"" onclick=""this.target='blank'"">%2 %3</a> <a href=""mailto:%4"">(%4)</a>","<a href=""%1"" onclick=""this.target='blank'"">%2 %3</a> <a href=""mailto:%4"">(%4)</a>"
+"%1 <a href=""mailto:%2"">(%2)</a>","%1 <a href=""mailto:%2"">(%2)</a>","%1 <a href=""mailto:%2"">(%2)</a>"
+Author,Author,??
+Please confirm to mark this comment as Not Spam,Please confirm to mark this comment as Not Spam,??????????????????????????
+Spam,Spam,???
+Not Spam?,Not Spam?,????????
+Status,Status,?????
+Nickname,Nickname,Nickname
+Comment,Comment,Comment
+ID,ID,ID
+Created,Created,Created
+Review Title,Review Title,Review Title
+Type,Type,Type
+Action,Action,Action
+Edit,Edit,Edit
+Delete,Delete,Delete
+Are you sure?,Are you sure?,Are you sure?
+Update Status,Update Status,Update Status
+Customer,Customer,Customer
+Guest,Guest,Guest
+Review Details,Review Details,Review Details
+Administrator,Administrator,Administrator
+Summary Rating,Summary Rating,Summary Rating
+Detailed Rating,Detailed Rating,Detailed Rating
+Please confirm to mark this review as Not Spam,Please confirm to mark this review as Not Spam,Please confirm to mark this review as Not Spam
+Visibility,Visibility,Visibility
+Summary of Review,Summary of Review,Summary of Review
+Title,Title,Title
+SKU,SKU,SKU
+Knowledge Base,Knowledge Base,Knowledge Base
+This feature is not available in the Lite package.,This feature is not available in the Lite package.,This feature is not available in the Lite package.
+Upgrade to Pro,Upgrade to Pro,Upgrade to Pro
+Most helpful first,Most helpful first,Most helpful first
+Most recent first,Most recent first,Most recent first
+All stars,All stars,All stars
+One star,One star,One star
+Two stars,Two stars,Two stars
+Three stars,Three stars,Three stars
+Four stars,Four stars,Four stars
+Five stars,Five stars,Five stars
+All reviewers,All reviewers,All reviewers
+Verified purchase only,Verified purchase only,Verified purchase only
+The comment has been deleted.,The comment has been deleted.,The comment has been deleted.
+Something went wrong while deleting this comment.,Something went wrong while deleting this comment.,Something went wrong while deleting this comment.
+Edit Comment,Edit Comment,Edit Comment
+"The comment has been marked as ""Not Spam"" and published.","The comment has been marked as ""Not Spam"" and published.","The comment has been marked as ""Not Spam"" and published."
+Something went wrong while updating this comment.,Something went wrong while updating this comment.,Something went wrong while updating this comment.
+Comments on Reviews,Comments on Reviews,Comments on Reviews
+Please select comment(s).,Please select comment(s).,Please select comment(s).
+A total of %1 record(s) have been deleted.,A total of %1 record(s) have been deleted.,A total of %1 record(s) have been deleted.
+Something went wrong while deleting these comment(s).,Something went wrong while deleting these comment(s).,Something went wrong while deleting these comment(s).
+A total of %1 record(s) have been updated.,A total of %1 record(s) have been updated.,A total of %1 record(s) have been updated.
+Something went wrong while updating these comment(s).,Something went wrong while updating these comment(s).,Something went wrong while updating these comment(s).
+The comment was removed by another user or does not exist.,The comment was removed by another user or does not exist.,The comment was removed by another user or does not exist.
+You saved the comment.,You saved the comment.,You saved the comment.
+"The review has been marked as ""Not Spam"" and published.","The review has been marked as ""Not Spam"" and published.","The review has been marked as ""Not Spam"" and published."
+Something went wrong while updating this review.,Something went wrong while updating this review.,Something went wrong while updating this review.
+Please select review(s).,Please select review(s).,Please select review(s).
+Something went wrong while updating these review(s).,Something went wrong while updating these review(s).,Something went wrong while updating these review(s).
+The review was removed by another user or does not exist.,The review was removed by another user or does not exist.,The review was removed by another user or does not exist.
+You saved the review.,You saved the review.,You saved the review.
+Something went wrong while saving this review.,Something went wrong while saving this review.,Something went wrong while saving this review.
+The test email has been sent,The test email has been sent,The test email has been sent
+Unable to post the comment.,Unable to post the comment.,Unable to post the comment.
+Thank you. Your comment has been submitted and is waiting for approval.,Thank you. Your comment has been submitted and is waiting for approval.,Thank you. Your comment has been submitted and is waiting for approval.
+Thank you. Your comment has been published.,Thank you. Your comment has been published.,Thank you. Your comment has been published.
+Something went wrong while saving your review.,Something went wrong while saving your review.,Something went wrong while saving your review.
+Invalid session. Please reload the page and try again.,Invalid session. Please reload the page and try again.,Invalid session. Please reload the page and try again.
+Thank you! You submitted your review for moderation.,Thank you! You submitted your review for moderation.,Thank you! You submitted your review for moderation.
+Thank you! Your review has been published.,Thank you! Your review has been published.,Thank you! Your review has been published.
+We can't post your review right now.,We can't post your review right now.,We can't post your review right now.
+Error during Akismet API Key verification.,Error during Akismet API Key verification.,Error during Akismet API Key verification.
+The API Key is valid.,The API Key is valid.,The API Key is valid.
+Please enter a valid API Key.,Please enter a valid API Key.,Please enter a valid API Key.
+Approved,Approved,Approved
+Pending,Pending,Pending
+Not Approved,Not Approved,Not Approved
+Please enter a nickname.,Please enter a nickname.,Please enter a nickname.
+Please enter a comment.,Please enter a comment.,Please enter a comment.
+Please enter your email.,Please enter your email.,Please enter your email.
+Most Expensive,Most Expensive,Most Expensive
+Least Reviewed,Least Reviewed,Least Reviewed
+Please enter the email address,Please enter the email address,Please enter the email address
+Please enter a valid email address,Please enter a valid email address,Please enter a valid email address
+Error while sending the test email.,Error while sending the test email.,Error while sending the test email.
+Loading...,Loading...,Loading...
+Version %1,Version %1,Version %1
+%1 out of 5 stars,%1 out of 5 stars,%1 out of 5 stars
+Click to see all %1 star reviews,Click to see all %1 star reviews,Click to see all %1 star reviews
+See all %1 reviews,See all %1 reviews,See all %1 reviews
+Be the first to review this product,Be the first to review this product,Be the first to review this product
+Post a comment,Post a comment,Post a comment
+as,as,as
+* Required Fields,* Required Fields,* Required Fields
+Email,Email,Email
+Submit Comment,Submit Comment,Submit Comment
+Sending...,Sending...,Sending...
+Cancel,Cancel,Cancel
+"Only registered users can write comments. Please, <a href=""%1"">Sign in</a> or <a href=""%2"">create an account</a>","Only registered users can write comments. Please, <a href=""%1"">Sign in</a> or <a href=""%2"">create an account</a>","Only registered users can write comments. Please, <a href=""%1"">Sign in</a> or <a href=""%2"">create an account</a>"
+By,By,By
+on,on,on
+Hide comments,Hide comments,Hide comments
+Submit Review,Submit Review,Submit Review
+Close,Close,Close
+Try Again,Try Again,Try Again
+You're reviewing:,You're reviewing:,You're reviewing:
+Your Rating,Your Rating,Your Rating
+%1 %2,%1 %2,%1 %2
+Summary,Summary,Summary
+"Only registered users can write reviews. Please, <a href=""%1"">Sign in</a> or <a href=""%2"">create an account</a>","Only registered users can write reviews. Please, <a href=""%1"">Sign in</a> or <a href=""%2"">create an account</a>","Only registered users can write reviews. Please, <a href=""%1"">Sign in</a> or <a href=""%2"">create an account</a>"
+Rating,Rating,Rating
+Reviews,Reviews,Reviews
+Add Your Review,Add Your Review,Add Your Review
+Items %1 to %2 of %3 total,Items %1 to %2 of %3 total,Items %1 to %2 of %3 total
+%1 Item,%1 Item,%1 Item
+%1 Item(s),%1 Item(s),%1 Item(s)
+Page,Page,Page
+You're currently reading page,You're currently reading page,You're currently reading page
+Show,Show,Show
+per page,per page,per page
+Ratings & reviews for,Ratings & reviews for,Ratings & reviews for
+Write a customer review,Write a customer review,Write a customer review
+Thank you for posting a review!,Thank you for posting a review!,Thank you for posting a review!
+We and all shoppers on %1 appreciate the time you took to share your experience with this item.,We and all shoppers on %1 appreciate the time you took to share your experience with this item.,We and all shoppers on %1 appreciate the time you took to share your experience with this item.
+%1 person found the following review helpful,%1 person found the following review helpful,%1 person found the following review helpful
+%1 people found the following review helpful,%1 people found the following review helpful,%1 people found the following review helpful
+Verified Purchase,Verified Purchase,Verified Purchase
+%1 Comment,%1 Comment,%1 Comment
+%1 Comments,%1 Comments,%1 Comments
+Was this review helpful to you?,Was this review helpful to you?,Was this review helpful to you?
+Yes,Yes,Yes
+No,No,No
+Thank you for your feedback!,Thank you for your feedback!,Thank you for your feedback!
+You already voted,You already voted,You already voted
+"Sorry, we failed to record your vote. Please try again","Sorry, we failed to record your vote. Please try again","Sorry, we failed to record your vote. Please try again"
+"Sorry, no reviews match your current selections","Sorry, no reviews match your current selections","Sorry, no reviews match your current selections"
+Try clearing or changing some filters.,Try clearing or changing some filters.,Try clearing or changing some filters.
+Show all reviews,Show all reviews,Show all reviews
+Rated %1 stars out of five stars,Rated %1 stars out of five stars,Rated %1 stars out of five stars
+reviews,reviews,reviews
+review,review,review
+Customer Reviews,Customer Reviews,Customer Reviews
+Most Helpful Customer Reviews,Most Helpful Customer Reviews,Most Helpful Customer Reviews
+There are no reviews yet,There are no reviews yet,There are no reviews yet
+Back to Product Info,Back to Product Info,Back to Product Info
+Please review your recent purchase at %store_name,Please review your recent purchase at %store_name,Please review your recent purchase at %store_name
+"Hello %customer_name,","Hello %customer_name,","Hello %customer_name,"
+You've recently bought,You've recently bought,You've recently bought
+what do you think about it?,what do you think about it?,what do you think about it?
+Click below to rate (1-5):,Click below to rate (1-5):,Click below to rate (1-5):
+Rate:,Rate:,Rate:
+Review Title:,Review Title:,Review Title:
+Review:,Review:,Review:
+Submit Your Review,Submit Your Review,Submit Your Review
+We really appreciate your feedback and hope to see you again soon.,We really appreciate your feedback and hope to see you again soon.,We really appreciate your feedback and hope to see you again soon.
+Thank you from,Thank you from,Thank you from
+"Too soon? If you have not received the product yet, please","Too soon? If you have not received the product yet, please","Too soon? If you have not received the product yet, please"
+contact us,contact us,contact us
+New comment at %store_name,New comment at %store_name,New comment at %store_name
+A new comment for one of the reviews of %product_name has been received.,A new comment for one of the reviews of %product_name has been received.,A new comment for one of the reviews of %product_name has been received.
+Comment from,Comment from,Comment from
+The status of this comment is: %status,The status of this comment is: %status,The status of this comment is: %status
+Manage comment,Manage comment,Manage comment
+New review at %store_name,New review at %store_name,New review at %store_name
+A new review for %product_name has been received.,A new review for %product_name has been received.,A new review for %product_name has been received.
+Review from,Review from,Review from
+The status of this review is: %status,The status of this review is: %status,The status of this review is: %status
+Manage review,Manage review,Manage review
+You got a new comment for your review at %store_name,You got a new comment for your review at %store_name,You got a new comment for your review at %store_name
+Someone has commented on the review you wrote for %product_name.,Someone has commented on the review you wrote for %product_name.,Someone has commented on the review you wrote for %product_name.
+You can check the comment and reply here: %url,You can check the comment and reply here: %url,You can check the comment and reply here: %url
+Thank you for reviewing %product_name,Thank you for reviewing %product_name,Thank you for reviewing %product_name
+on %store_name,on %store_name,on %store_name
+"Thanks %nickname,","Thanks %nickname,","Thanks %nickname,"
+Your latest customer review is live on  %store_name. We and all shoppers on %store_name appreciate the time you took to share your experience with this item.,Your latest customer review is live on  %store_name. We and all shoppers on %store_name appreciate the time you took to share your experience with this item.,Your latest customer review is live on  %store_name. We and all shoppers on %store_name appreciate the time you took to share your experience with this item.
+Write Your Own Review,Write Your Own Review,Write Your Own Review
+Read more,Read more,Read more
+Intenso Reviews,Intenso Reviews,Intenso Reviews
+Configuration,Configuration,Configuration
+About,About,About
+Version,Version,Version
+Documentation,Documentation,Documentation
+General,General,General
+Moderate Reviews Submitted by Guest Users,Moderate Reviews Submitted by Guest Users,Moderate Reviews Submitted by Guest Users
+Moderate Reviews Submitted by Customers,Moderate Reviews Submitted by Customers,Moderate Reviews Submitted by Customers
+Moderate Comments Submitted by Guest Users,Moderate Comments Submitted by Guest Users,Moderate Comments Submitted by Guest Users
+Moderate Comments Submitted by Customers,Moderate Comments Submitted by Customers,Moderate Comments Submitted by Customers
+Number of Reviews in Product Page,Number of Reviews in Product Page,Number of Reviews in Product Page
+Please enter a number 1 or greater in this field.,Please enter a number 1 or greater in this field.,Please enter a number 1 or greater in this field.
+Number of Words for Preview,Number of Words for Preview,Number of Words for Preview
+"Limit the number of words to display before the ""Read more"" link. Enter 0 for unlimited.","Limit the number of words to display before the ""Read more"" link. Enter 0 for unlimited.","Limit the number of words to display before the ""Read more"" link. Enter 0 for unlimited."
+Display Rating Summary Popover on Hover,Display Rating Summary Popover on Hover,Display Rating Summary Popover on Hover
+"If enabled, a small popover box displays the rating and reviews summary for each product on catalog pages","If enabled, a small popover box displays the rating and reviews summary for each product on catalog pages","If enabled, a small popover box displays the rating and reviews summary for each product on catalog pages"
+Spam Protection,Spam Protection,Spam Protection
+Enable Spam Protection,Enable Spam Protection,Enable Spam Protection
+"If enabled, all reviews and comments are filtered by the Akismet anti-spam filter","If enabled, all reviews and comments are filtered by the Akismet anti-spam filter","If enabled, all reviews and comments are filtered by the Akismet anti-spam filter"
+Akismet API Key,Akismet API Key,Akismet API Key
+"Sign up at <a href=""https://akismet.com/"" target=""_blank"">https://akismet.com/</a> to get your API key","Sign up at <a href=""https://akismet.com/"" target=""_blank"">https://akismet.com/</a> to get your API key","Sign up at <a href=""https://akismet.com/"" target=""_blank"">https://akismet.com/</a> to get your API key"
+Validate API Key,Validate API Key,Validate API Key
+Store Owner Notifications,Store Owner Notifications,Store Owner Notifications
+Send Emails To,Send Emails To,Send Emails To
+Email Sender,Email Sender,Email Sender
+New Review Notification,New Review Notification,New Review Notification
+"If enabled, an email is sent to the store owner when a new review is posted","If enabled, an email is sent to the store owner when a new review is posted","If enabled, an email is sent to the store owner when a new review is posted"
+New Review Notification Template,New Review Notification Template,New Review Notification Template
+New Comment Notification,New Comment Notification,New Comment Notification
+"If enabled, an email is sent to the store owner when a new comment is posted","If enabled, an email is sent to the store owner when a new comment is posted","If enabled, an email is sent to the store owner when a new comment is posted"
+New Comment Notification Template,New Comment Notification Template,New Comment Notification Template
+Customer Notifications,Customer Notifications,Customer Notifications
+Enable Review Published Notification,Enable Review Published Notification,Enable Review Published Notification
+"If enabled, an email is sent to the reviewer when the review has been published.","If enabled, an email is sent to the reviewer when the review has been published.","If enabled, an email is sent to the reviewer when the review has been published."
+Review Published Template,Review Published Template,Review Published Template
+Enable Review Comment Notification,Enable Review Comment Notification,Enable Review Comment Notification
+"If enabled, an email is sent to the reviewer when another user leaves a comment on his/her review.","If enabled, an email is sent to the reviewer when another user leaves a comment on his/her review.","If enabled, an email is sent to the reviewer when another user leaves a comment on his/her review."
+Review Comment Template,Review Comment Template,Review Comment Template
+Mail After Purchase,Mail After Purchase,Mail After Purchase
+Enable Mail After Purchase,Enable Mail After Purchase,Enable Mail After Purchase
+"If enabled, an email is automatically sent to your customers a certain number of days after they have made their purchases.","If enabled, an email is automatically sent to your customers a certain number of days after they have made their purchases.","If enabled, an email is automatically sent to your customers a certain number of days after they have made their purchases."
+Mail After Purchase Threshold,Mail After Purchase Threshold,Mail After Purchase Threshold
+This is the number of days the system will wait until sending the Mail After Purchase. 14 days is the recommended threshold.,This is the number of days the system will wait until sending the Mail After Purchase. 14 days is the recommended threshold.,This is the number of days the system will wait until sending the Mail After Purchase. 14 days is the recommended threshold.
+Max Number of Emails,Max Number of Emails,Max Number of Emails
+Set the maximum number of emails sent for orders with multiple products.,Set the maximum number of emails sent for orders with multiple products.,Set the maximum number of emails sent for orders with multiple products.
+Mail Interval,Mail Interval,Mail Interval
+Set the number of days between the sending of each subsequent email for orders with multiple products.,Set the number of days between the sending of each subsequent email for orders with multiple products.,Set the number of days between the sending of each subsequent email for orders with multiple products.
+Sort Order,Sort Order,Sort Order
+"Choose to request a review for the most expensive product first, or the product with the least reviews, in orders with multiple products. The 2nd email request will be for the second most expensive product and so on.","Choose to request a review for the most expensive product first, or the product with the least reviews, in orders with multiple products. The 2nd email request will be for the second most expensive product and so on.","Choose to request a review for the most expensive product first, or the product with the least reviews, in orders with multiple products. The 2nd email request will be for the second most expensive product and so on."
+Mail After Purchase Template,Mail After Purchase Template,Mail After Purchase Template
+Send Test,Send Test,Send Test
+Verified Purchase Badge,Verified Purchase Badge,Verified Purchase Badge
+Enable Verified Purchase Badge,Enable Verified Purchase Badge,Enable Verified Purchase Badge
+"If enabled, a ""Verified Purchase"" badge is displayed on the review when the customer has bought the product on your store.","If enabled, a ""Verified Purchase"" badge is displayed on the review when the customer has bought the product on your store.","If enabled, a ""Verified Purchase"" badge is displayed on the review when the customer has bought the product on your store."
+Please write a review,Please write a review,Please write a review
+"If enabled, the total number of reviews for a product is displayed next to the rating stars on catalog pages","If enabled, the total number of reviews for a product is displayed next to the rating stars on catalog pages","If enabled, the total number of reviews for a product is displayed next to the rating stars on catalog pages"
+Add Photos,Add Photos,Add Photos
+Customer Photos,Customer Photos,Customer Photos
+This review doesn’t include photos,This review doesn’t include photos,This review doesn’t include photos
+"If enabled, customers will be able to upload up to 5 photos alongside their reviews","If enabled, customers will be able to upload up to 5 photos alongside their reviews","If enabled, customers will be able to upload up to 5 photos alongside their reviews"
+Store Owner Comment,Store Owner Comment,Store Owner Comment
+Public,Public,Public
+Private,Private,Private
+"%store_name received your review on ""%product_name"" and replied:","%store_name received your review on ""%product_name"" and replied:","%store_name received your review on ""%product_name"" and replied:"
+"Thanks again for the review, and we hope to see you again soon!","Thanks again for the review, and we hope to see you again soon!","Thanks again for the review, and we hope to see you again soon!"
+Store Owner Comments,Store Owner Comments,Store Owner Comments
+Name,Name,Name
+Choose the name that will be displayed next to your public comments (e.g. your store name),Choose the name that will be displayed next to your public comments (e.g. your store name),Choose the name that will be displayed next to your public comments (e.g. your store name)
+Display Your Comments in Expanded Mode,Display Your Comments in Expanded Mode,Display Your Comments in Expanded Mode
+"If enabled, your comments will be visible below the review without clicking the ""Comments"" link.","If enabled, your comments will be visible below the review without clicking the ""Comments"" link.","If enabled, your comments will be visible below the review without clicking the ""Comments"" link."
+Store Owner Comment Email Template,Store Owner Comment Email Template,Store Owner Comment Email Template

@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Intenso Commerce. All rights reserved.
+ * See License.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <intenso_review>
+            <configuration>
+                <moderate_guest_review>1</moderate_guest_review>
+                <moderate_customer_review>0</moderate_customer_review>
+                <moderate_guest_comment>1</moderate_guest_comment>
+                <moderate_customer_comment>0</moderate_customer_comment>
+                <product_page_review_limit>5</product_page_review_limit>
+                <max_words_preview>100</max_words_preview>
+                <summary_popover>1</summary_popover>
+                <review_count>1</review_count>
+                <user_generated_photos>1</user_generated_photos>
+            </configuration>
+            <akismet>
+                <enable>0</enable>
+            </akismet>
+            <owner_email_options>
+                <sender_email_identity>general</sender_email_identity>
+                <enable_new_review_notification>0</enable_new_review_notification>
+                <new_review_template>intenso_review_owner_email_options_new_review_template</new_review_template>
+                <enable_new_comment_notification>0</enable_new_comment_notification>
+                <new_comment_template>intenso_review_owner_email_options_new_comment_template</new_comment_template>
+            </owner_email_options>
+            <customer_email_options>
+                <sender_email_identity>general</sender_email_identity>
+                <enable_review_published_notification>1</enable_review_published_notification>
+                <review_published_template>intenso_review_customer_email_options_review_published_template</review_published_template>
+                <enable_comment_notification>1</enable_comment_notification>
+                <review_comment_template>intenso_review_customer_email_options_review_comment_template</review_comment_template>
+            </customer_email_options>
+            <map_options>
+                <enable_map>1</enable_map>
+                <sender_email_identity>general</sender_email_identity>
+                <mail_after_purchase_threshold>14</mail_after_purchase_threshold>
+                <map_bulk_emails>3</map_bulk_emails>
+                <map_bulk_interval>5</map_bulk_interval>
+                <map_sort_order>price</map_sort_order>
+                <map_template>intenso_review_map_options_map_template</map_template>
+            </map_options>
+            <verified_purchase>
+                <enable_badge>1</enable_badge>
+            </verified_purchase>
+            <store_owner_comments>
+                <expanded_mode>0</expanded_mode>
+                <store_owner_reply_template>intenso_review_store_owner_comments_store_owner_reply_template</store_owner_reply_template>
+            </store_owner_comments>
+        </intenso_review>
+    </default>
+</config>

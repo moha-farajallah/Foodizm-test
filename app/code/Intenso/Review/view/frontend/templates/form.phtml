@@ -1,0 +1,203 @@
+<?php
+/**
+ * Copyright © Intenso Commerce. All rights reserved.
+ * See License.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/**
+ * @var $block \Magento\Review\Block\Form
+ */
+?>
+<?php $helper = $this->helper(\Intenso\Review\Helper\Data::class); ?>
+<div id="intenso-add-review-modal"
+    data-btn-txt="<?php echo __('Submit Review'); ?>"
+    data-btn-sending="<?php echo __('Sending...'); ?>"
+    data-btn-close="<?php echo __('Close'); ?>"
+    data-btn-retry="<?php echo __('Try Again'); ?>"
+    <?php if ($helper->canUploadPhotos()): ?>
+    data-img-post-url="<?php echo $helper->imgPostAction(); ?>"
+    <?php endif; ?>
+>
+    <div class="block review-add">
+        <div class="block-content">
+        <?php if ($block->getAllowWriteReviewFlag()): ?>
+            <form action="<?php /* @escapeNotVerified */ echo $block->getAction() ?>" class="review-form" method="post" id="review-form" data-role="product-review-form" data-bind="scope: 'customer'">
+                <?php echo $block->getBlockHtml('formkey'); ?>
+                <?php echo $block->getChildHtml('form_fields_before')?>
+                <fieldset class="fieldset review-fieldset" data-hasrequired="<?php __('* Required Fields'); ?>">
+                    <legend class="legend review-legend">
+                        <span>
+                            <?php /* @escapeNotVerified */ echo __('You\'re reviewing:'); ?>
+                        </span>
+                        <strong><?php echo $block->escapeHtml($block->getProductInfo()->getName()) ?> </strong>
+                        <!-- ko if: customer().fullname  -->
+                        <?php /* @escapeNotVerified */ echo __('as'); ?> <strong data-bind="text: new String(customer().firstname)"></strong>
+                        <!-- /ko -->
+                    </legend><br />
+                    <?php if ($block->getRatings() && $block->getRatings()->getSize()): ?>
+                    <span id="input-message-box"></span>
+                    <fieldset class="field required review-field-ratings">
+                        <legend class="label"><span><?php /* @escapeNotVerified */ echo __('Your Rating') ?></span></legend><br/>
+                        <div class="control">
+                            <div class="nested" id="product-review-table">
+                                <?php foreach ($block->getRatings() as $_rating): ?>
+                                    <?php $id = md5($_rating->getRatingCode()); ?>
+                                    <div class="field choice review-field-rating">
+                                        <label class="label" id="<?= $id ?>_rating_label"><span><?php echo $block->escapeHtml($_rating->getRatingCode()) ?></span></label>
+                                        <div class="control review-control-vote">
+                                        <?php $options = $_rating->getOptions();?>
+                                        <?php $iterator = 1; foreach ($options as $_option): ?>
+                                            <input
+                                                type="radio"
+                                                name="ratings[<?php /* @escapeNotVerified */ echo $_rating->getId() ?>]"
+                                                id="<?= $id ?>_<?php /* @escapeNotVerified */ echo $_option->getValue() ?>"
+                                                value="<?php /* @escapeNotVerified */ echo $_option->getId() ?>"
+                                                class="radio"
+                                                data-validate="{required:true, messages:{required:'<?= __('Please select one of each of the ratings above.') ?>'}}"
+                                                aria-labelledby="<?= $id ?>_rating_label">
+                                            <label
+                                                class="rating-<?php /* @escapeNotVerified */ echo $iterator; ?>"
+                                                for="<?= $id ?>_<?php /* @escapeNotVerified */ echo $_option->getValue() ?>"
+                                                title="<?php /* @escapeNotVerified */ echo __('%1 %2', $iterator, $iterator > 1 ? 'stars' : 'star') ?>"
+                                                id="<?= $id ?>_<?php /* @escapeNotVerified */ echo $_option->getValue() ?>_label">
+                                                <span><?php /* @escapeNotVerified */ echo __('%1 %2', $iterator, $iterator > 1 ? 'stars' : 'star') ?></span>
+                                            </label>
+                                        <?php $iterator++; ?>
+                                        <?php endforeach; ?>
+                                        </div>
+                                    </div>
+                                <?php endforeach; ?>
+                            </div>
+                            <input type="hidden" name="validate_rating" class="validate-rating" value="">
+                        </div>
+                    </fieldset>
+                    <?php endif ?>
+                    <div class="field review-field-text required">
+                        <label for="review_field" class="label"><span><?php /* @escapeNotVerified */ echo __('Review') ?></span></label>
+                        <div class="control">
+                            <textarea name="detail" id="review_field" data-validate="{required:true}"></textarea>
+                        </div>
+                    </div>
+                    <div class="field review-field-summary required">
+                        <label for="summary_field" class="label"><span><?php /* @escapeNotVerified */ echo __('Summary') ?></span></label>
+                        <div class="control">
+                            <input type="text" name="title" id="summary_field" class="input-text" data-validate="{required:true}">
+                        </div>
+                    </div>
+                    <!-- ko ifnot: customer().fullname  -->
+                    <div class="field review-field-nickname required">
+                        <label for="nickname_field" class="label"><span><?php /* @escapeNotVerified */ echo __('Nickname') ?></span></label>
+                        <div class="control">
+                            <input type="text" name="nickname" id="nickname_field" class="input-text" data-validate="{required:true}">
+                        </div>
+                    </div>
+                    <div class="field review-field-email required">
+                        <label for="review-email" class="label"><span><?php /* @escapeNotVerified */ echo __('Email') ?></span></label>
+                        <div class="control">
+                            <input type="email" name="email" id="review-email" class="input-text" data-validate="{required:true, 'validate-email':true}">
+                        </div>
+                    </div>
+                    <!-- /ko -->
+                </fieldset>
+                <div class="intenso-review-response">
+                    <div class="sa-icon sa-success">
+                        <span class="sa-line sa-tip"></span>
+                        <span class="sa-line sa-long"></span>
+                        <div class="sa-placeholder"></div>
+                        <div class="sa-fix"></div>
+                    </div>
+                    <div class="sa-icon sa-error">
+                        <span class="sa-x-mark">
+                            <span class="sa-line sa-left"></span>
+                            <span class="sa-line sa-right"></span>
+                        </span>
+                    </div>
+                    <h2 id="intenso-status-message"></h2>
+                </div>
+                <div class="dropzone-previews"></div>
+            </form>
+        <?php else: ?>
+            <div class="message info notlogged" id="review-form">
+                <div>
+                    <?php /* @escapeNotVerified */ echo __('Only registered users can write reviews. Please, <a href="%1">Sign in</a> or <a href="%2">create an account</a>', $block->getLoginLink(), $block->getRegisterUrl()) ?>
+                </div>
+            </div>
+        <?php endif ?>
+            <script>
+                require([
+                    'jquery',
+                    'Magento_Ui/js/modal/modal'
+                ], function($, modal) {
+                    var scrollTop,
+                        $body = $('body');
+
+                    $(function () {
+                        var options = {
+                            type: 'popup',
+                            modalClass: 'intenso-modal',
+                            autoOpen: false,
+                            responsive: true,
+                            innerScroll: true,
+                            clickableOverlay: true,
+                            title: '<?php echo str_replace("'", '&apos;', __('Write Your Own Review')); ?>',
+                            buttons: [{
+                                text: '<?php echo str_replace("'", '&apos;', __('Close')); ?>',
+                                class: 'intenso-close-button',
+                                click: function () {
+                                    this.closeModal();
+                                }
+                            },
+                            <?php if ($block->getAllowWriteReviewFlag()): ?>
+                                <?php if ($helper->canUploadPhotos()): ?>
+                                {
+                                    text: '<?php echo str_replace("'", '&apos;', __('Add Photos')); ?>',
+                                    class: 'intenso-add-photos-button',
+                                    click: function (e) {
+                                        e.preventDefault();
+                                    }
+                                },
+                                <?php endif; ?>
+                            {
+                                text: '<?php echo str_replace("'", '&apos;', __('Submit Review')); ?>',
+                                class: 'action submit primary intenso-submit-review',
+                                click: function (e) {
+                                    e.preventDefault();
+                                }
+                            }<?php endif; ?>],
+                            opened: function() {
+                                /* Workaround to fix wrong caret position for input field inside a fixed position
+                                   parent on iOS 11: https://bugs.webkit.org/show_bug.cgi?id=176896 */
+                                scrollTop = $(window).scrollTop();
+                                $body.css('position', 'fixed');
+                                $body.css('top', - scrollTop + 'px');
+                            },
+                            closed: function() {
+                                $body.css({'position': '', 'top': ''});
+                                $(window).scrollTop(scrollTop);
+                            }
+                        };
+                        modal(options, $('#intenso-add-review-modal'));
+                    });
+                });
+            </script>
+            <script type="text/x-magento-init">
+            {
+                "*": {
+                    "Magento_Ui/js/core/app": {
+                        "components": {
+                            "customer": {
+                                "component": "Magento_Customer/js/view/customer"
+                            }
+                        }
+                    }
+                },
+                "#review-form": {
+                    "Magento_Review/js/error-placement": {}
+                }
+            }
+            </script>
+        </div>
+    </div>
+</div>

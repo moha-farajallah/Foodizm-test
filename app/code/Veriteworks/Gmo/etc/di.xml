@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <type name="Veriteworks\Gmo\Logger\Handler">
+        <arguments>
+            <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
+        </arguments>
+    </type>
+    <virtualType name="GmoLogger" type="Magento\Framework\Logger\Monolog">
+        <arguments>
+            <argument name="name" xsi:type="string">gmoLogger</argument>
+            <argument name="handlers"  xsi:type="array">
+                <item name="gmo" xsi:type="object">Veriteworks\Gmo\Logger\Handler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <preference for="\Zend_Http_Client_Adapter_Interface" type="Veriteworks\Gmo\Gateway\Adapter\Client"/>
+    <type name="Veriteworks\Gmo\Cron\CleanupOrder">
+        <arguments>
+            <argument name="methodNames" xsi:type="array">
+                <item name="cc" xsi:type="const">Veriteworks\Gmo\Model\Config\CcProvider::CODE</item>
+                <item name="multi" xsi:type="const">Veriteworks\Gmo\Model\Config\CcMultiProvider::CODE</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Veriteworks\Gmo\Controller\Notify\Receive">
+        <arguments>
+            <argument name="logger" xsi:type="object">GmoLogger</argument>
+        </arguments>
+    </type>
+    <type name="Veriteworks\Gmo\Gateway\Connector">
+        <arguments>
+            <argument name="logger" xsi:type="object">GmoLogger</argument>
+        </arguments>
+    </type>
+</config>

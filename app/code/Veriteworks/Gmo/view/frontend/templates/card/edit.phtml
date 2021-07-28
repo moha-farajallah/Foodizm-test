@@ -1,0 +1,190 @@
+<?php
+// @codingStandardsIgnoreFile
+
+/** @var \Veriteworks\Gmo\Block\Card\Edit $block */
+$ccType = $block->getInfoData('cc_type');
+$ccExpMonth = $block->getInfoData('cc_exp_month');
+$ccExpYear = $block->getInfoData('cc_exp_year');
+?>
+<script type="text/javascript" src="<?= $block->getGatewayUrl(); ?>ext/js/token.js" ></script>
+<form class="form form-edit-card" action="<?php /* @escapeNotVerified */
+echo $block->getUrl('gmo/card/editPost') ?>" method="post" id="form-validate"
+      data-hasrequired="<?php /* @escapeNotVerified */
+      echo __('* Required Fields') ?>" autocomplete="off">
+    <input type="hidden" name="cc_token" id="cc_token" value="" />
+    <input type="hidden" name="cc_error" id="cc_error" value="" />
+    <fieldset class="fieldset info">
+        <div class="field type required">
+            <label for="cc_type" class="label">
+                <span><?= $block->escapeHtml(__('Credit Card Type')); ?></span>
+            </label>
+            <div class="control">
+                <select id="cc_type"
+                        data-mage-init='{
+                        "creditCardType":{"creditCardTypeContainer":"#cc_type_ss_div"}
+                    }'
+                        name="cc_type" data-validate='{
+                        required:true,
+                        "validate-cc-type-select":"#cc_number"
+                    }'
+                        class="select">
+                    <option
+                        value=""><?= $block->escapeHtml(__('--Please Select--')); ?></option>
+                    <?php foreach ($block->getCcAvailableTypes() as $typeCode => $typeName): ?>
+                        <option
+                            value="<?= $block->escapeHtml($typeCode); ?>"
+                            <?php if ($typeCode == $ccType): ?> selected="selected"<?php endif; ?>>
+                            <?= $block->escapeHtml($typeName); ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+        </div>
+        <div class="field number required">
+            <label for="cc_number" class="label">
+                <span><?= $block->escapeHtml(__('Credit Card Number')); ?></span>
+            </label>
+            <div class="control">
+                <input type="number" id="cc_number" name="cc_number"
+                       title="<?= $block->escapeHtml(__('Credit Card Number')); ?>"
+                       class="input-text" value=""
+                       data-validate='{
+                       "required-number":true,
+                       "validate-cc-number":"#cc_type",
+                       "validate-cc-type":"#cc_type"
+                   }'/>
+            </div>
+        </div>
+        <div class="field date required" id="cc_type_exp_div">
+            <label for="expiration" class="label">
+                <span><?= $block->escapeHtml(__('Expiration Date')); ?></span>
+            </label>
+            <div class="control">
+                <div class="fields group group-2">
+                    <div class="field no-label month">
+                        <div class="control">
+                            <select id="expiration" name="cc_exp_month"
+                                    class="select month"
+                                    data-validate='{required:true, "validate-cc-exp":"#expiration_yr"}'>
+                                <?php foreach ($block->getCcMonths() as $k => $v): ?>
+                                    <option value="<?php /* @escapeNotVerified */
+                                    echo $k ? $block->escapeHtml($k) : ''; ?>"
+                                        <?php if ($k == $ccExpMonth): ?> selected="selected"<?php endif; ?>>
+                                        <?= $block->escapeHtml($v); ?>
+                                    </option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="field no-label year">
+                        <div class="control">
+                            <select id="expiration_yr"
+                                    name="cc_exp_year"
+                                    class="select year"
+                                    data-validate='{required:true}'>
+                                <?php foreach ($block->getCcYears() as $k => $v): ?>
+                                    <option value="<?php /* @escapeNotVerified */
+                                    echo $k ? $block->escapeHtml($k) : ''; ?>
+                                "<?php if ($k == $ccExpYear): ?> selected="selected"<?php endif; ?>>
+                                        <?= $block->escapeHtml($v); ?>
+                                    </option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="field number required">
+            <label for="cc_cid" class="label">
+                <span><?= $block->escapeHtml(__('Security Code')); ?></span>
+            </label>
+            <div class="control">
+                <input type="number" id="cc_cid" name="cc_cid"
+                       title="<?= $block->escapeHtml(__('Security Code')); ?>"
+                       class="input-text cvv" value=""
+                       data-validate='{
+                       "required-number":true,
+                       "validate-cc-cvn":"#cc_type"
+                   }'/>
+            </div>
+        </div>
+
+        <div class="actions-toolbar">
+            <div class="primary">
+                <button type="submit" class="action save primary"
+                        title="<?php /* @escapeNotVerified */
+                        echo __('Submit') ?>" id="submit-card">
+                    <span><?php /* @escapeNotVerified */
+                        echo __('Submit') ?></span></button>
+            </div>
+            <div class="secondary">
+                <a class="action back"
+                   href="<?= $block->escapeUrl($block->getBackUrl()) ?>"><span><?php /* @escapeNotVerified */
+                        echo __('Go back') ?></span></a>
+            </div>
+        </div>
+    </fieldset>
+</form>
+<script>
+    var error_msg = "<?= __('Your credit card information is wrong. Please confirm it.')?>";
+    require([
+        "jquery",
+        "mage/mage"
+        ]
+    , function ($) {
+        var dataForm = $('#form-validate');
+            dataForm.mage('validation', {
+                ignore: ':hidden',
+                submitHandler: function(form)
+                {
+                    <?php if($block->getUseToken()):?>
+                    Multipayment.init('<?= $block->getShopId() ?>');
+                    Multipayment.getToken(
+                        {
+                            cardno: jQuery('#cc_number').val().replace(/[^\d]/g, ""),
+                            expire: (jQuery('#expiration_yr').val() + ("00" + jQuery('#expiration').val()).slice(-2)).replace(/[^\d]/g, ""),
+                            securitycode: jQuery('#cc_cid').val().replace(/[^\d]/g, "")
+                        }, 'submitToGmo');
+                    var timer = setInterval(function(obj) {
+                        var token = jQuery('#cc_token').val();
+                        var error = jQuery('#cc_error').val();
+                        if(token) {
+                            clearInterval(timer);
+                            jQuery(form).trigger('afterValidate');
+                            form.submit();
+                        } else if(error) {
+                            clearInterval(timer);
+                            alert(error_msg);
+                        }
+                    }, 1000);
+                    <?php else:?>
+                    jQuery(form).trigger('afterValidate');
+                    form.submit();
+                    <?php endif;?>
+                }
+            });
+            //$('#submit-card').on('click', beforeSubmit);
+
+    });
+
+    function submitToGmo (response) {
+        if( response.resultCode != 000 ){
+            jQuery('#cc_error').val(response.resultCode);
+            return false;
+        }else {
+            var form = jQuery('#form-validate');
+            jQuery('#expiration').prop('selectedIndex', 0);
+            jQuery('#expiration_yr').prop('selectedIndex', 0);
+            jQuery('#cc_cid').val('');
+            jQuery('#cc_number').val("");
+            jQuery('#cc_token').val(response.tokenObject.token);
+        }
+    }
+
+    function beforeSubmit() {
+
+
+    }
+</script>
+

@@ -1,0 +1,83 @@
+/**
+ * Ksolves
+ *
+ * @category   Ksolves
+ * @package    Ksolves_Deliverydate
+ * @author     Ksolves Team
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+
+.ks-delivery-date .title, .delivery-time .title, .title, .delivery-comment .title {
+    margin-bottom: 8px;
+}
+
+.ks-delivery-date .control input {
+    width: 75%;
+    position: relative;
+    display: inline-block;
+}
+
+.ks-delivery-date .ks-remove-delivery-date {
+    cursor: pointer;
+    position: relative;
+    right: 45px;
+    display: inline-block;
+}
+
+.ks-delivery-date, .ks-delivery-time {
+    display: inline-block;
+    width: 45%;
+    margin-bottom: 20px;
+}
+
+.ks-delivery-comment {
+    width: 90%;
+    margin-bottom: 20px;
+}
+
+.checkout-index-index.page-layout-checkout #ui-datepicker-div { 
+    border: none;
+    background-color: #2a79c3;
+    color: #fff;
+}
+
+.checkout-index-index.page-layout-checkout #ui-datepicker-div .ui-datepicker-calendar th{
+    background: #25527b;
+}
+
+.checkout-index-index.page-layout-checkout #ks-delivery-time {
+    width: 269px;
+}
+
+.checkout-index-index.page-layout-checkout .ks-deliverydate-info {
+    margin-bottom: 20px;
+}
+
+.checkout-index-index.page-layout-checkout #ks-delivery-date {
+    margin-right: 10px;
+}
+
+.checkout-index-index.page-layout-checkout .ks-deliverydate-info #co-deliverydate {
+    padding: 30px;
+    border: 1px solid #ccc;
+    max-width: 600px;
+}
+
+.checkout-index-index.page-layout-checkout .ks-delivery-comment {
+    max-width: 604px;
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.checkout-index-index.page-layout-checkout .ks-delivery-date {
+    width: 324px;
+}
+
+.checkout-index-index.page-layout-checkout .ks-delivery-time {
+    width: auto;
+}
+
+.checkout-index-index.page-layout-checkout #shipping-method-buttons-container {
+    max-width: 665px;
+}
+

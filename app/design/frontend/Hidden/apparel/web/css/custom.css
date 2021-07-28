@@ -1,0 +1,112 @@
+@font-face {
+  font-family: 'AEH';
+  src: url('../fonts/Design-Fonts/AEH.ttf')  format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Avenir Black';
+  src: url('../fonts/Design-Fonts/Avenir Black.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Avenir Medium';
+  src: url('../fonts/Design-Fonts/Avenir Medium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Avenir-Black';
+  src: url('../fonts/Design-Fonts/Avenir-Black.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'yumindb';
+  src: url('../fonts/Design-Fonts/yumindb.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Monotype  - Tazugane Gothic StdN Book';
+  src: url('../fonts/Design-Fonts/Monotype  - Tazugane Gothic StdN Book.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Oswald-Heavy';
+  src: url('../fonts/Design-Fonts/Oswald-Heavy.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Avenir 85 Heavy';
+  src: url('../fonts/Design-Fonts/Avenir 85 Heavy.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Just Lovely Slanted';
+  src: url('../fonts/Design-Fonts/Just Lovely Slanted.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Monotype  - Tazugane Gothic StdN Bold';
+  src: url('../fonts/Design-Fonts/Monotype  - Tazugane Gothic StdN Bold.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Monotype  - Tazugane Gothic StdN Medium';
+  src: url('../fonts/Design-Fonts/Monotype  - Tazugane Gothic StdN Medium.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Monotype  - Tazugane Gothic StdN';
+  src: url('../fonts/Design-Fonts/Monotype  - Tazugane Gothic StdN.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Axis Extrabold';
+  src: url('../fonts/Design-Fonts/Axis Extrabold.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+    font-family: 'MonotypeTazuganeGothicStdNBook';
+    src: url(../fonts/Design-Fonts/MonotypeTazuganeGothicStdNBook.otf) format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MonotypeTazuganeGothicStdN';
+    src: url(../fonts/Design-Fonts/MonotypeTazuganeGothicStdN) format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Copperplate';
+    src: url(../fonts/Design-Fonts/OPTICopperplate.ttf) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Copperplatelight';
+    src: url(../fonts/Design-Fonts/OPTICopperplate-Light.otf) format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'AvenirMedium';
+    src: url(../fonts/Design-Fonts/AvenirMedium.ttf) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}

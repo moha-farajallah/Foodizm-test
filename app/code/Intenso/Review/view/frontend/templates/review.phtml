@@ -1,0 +1,22 @@
+<?php
+/**
+ * Copyright © Intenso Commerce. All rights reserved.
+ * See License.txt for license details.
+ */
+?>
+
+<div id="product-review-container" data-role="product-review">
+    <?php echo $block->getChildHtml('intenso_reviews'); ?>
+</div>
+<?php echo $block->getChildHtml('review_form'); ?>
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Intenso_Review/js/process-reviews": {
+                "productReviewUrl": "<?php /* @escapeNotVerified */ echo $block->getProductReviewUrl();?>",
+                "isAjax": 0
+            }
+        }
+    }
+</script>

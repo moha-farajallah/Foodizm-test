@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<include xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_include.xsd">
+    <group id="veritegmo_atm" type="text" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="1" translate="label comment">
+        <label>Pay-easy payment</label>
+        <fieldset_css>veritegmo-method-atm</fieldset_css>
+        <attribute type="activity_path">payment/veritegmo_atm/active</attribute>
+        <field id="title" translate="label" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Title</label>
+            <config_path>payment/veritegmo_atm/title</config_path>
+        </field>
+        <field id="active" type="select" translate="label" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Enabled</label>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            <config_path>payment/veritegmo_atm/active</config_path>
+        </field>
+        <field id="contact" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Contact Info</label>
+            <config_path>payment/veritegmo_atm/contact</config_path>
+        </field>
+        <field id="contact_tel" translate="label" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Contact Tel</label>
+            <config_path>payment/veritegmo_atm/contact_tel</config_path>
+        </field>
+        <field id="contact_time" translate="label" sortOrder="12" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Contact Time</label>
+            <config_path>payment/veritegmo_atm/contact_time</config_path>
+        </field>
+        <field id="instructions" translate="label" type="textarea" sortOrder="62" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Instructions</label>
+            <config_path>payment/veritegmo_atm/instructions</config_path>
+        </field>
+        <field id="min_order_total" translate="label" sortOrder="99" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Minimum Order Total</label>
+            <config_path>payment/veritegmo_atm/min_order_total</config_path>
+        </field>
+        <field id="max_order_total" translate="label" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Maximum Order Total</label>
+            <config_path>payment/veritegmo_atm/max_order_total</config_path>
+        </field>
+        <field id="sort_order" translate="label" type="text" sortOrder="230" showInDefault="1" showInWebsite="1" showInStore="0">
+            <label>Sort Order</label>
+            <frontend_class>validate-number</frontend_class>
+            <config_path>payment/veritegmo_atm/sort_order</config_path>
+        </field>
+        <field id="debug" type="select" translate="label" sortOrder="999" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Debug</label>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            <config_path>payment/veritegmo_atm/debug</config_path>
+        </field>
+    </group>
+</include>

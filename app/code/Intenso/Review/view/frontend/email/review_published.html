@@ -1,0 +1,34 @@
+<!--
+/**
+ * Copyright © Intenso Commerce. All rights reserved.
+ * See License.txt for license details.
+ */
+-->
+<!--@subject {{trans "Thank you for reviewing %product_name" product_name=$review.getProductName()}} {{trans "on %store_name" store_name=$store.getFrontendName()}} @-->
+<!--@vars {
+"var review.getProductName()":"Product Name",
+"var review.getNickname()":"Nickname",
+"var review.getCustomerEmail()":"Customer Email",
+"var review.getUserIp()":"User IP Address",
+"var review.getTitle()":"Review Title",
+"var review.getDetail()":"Review Detail",
+"var store.getFrontendName()":"Store Name"
+} @-->
+
+{{template config_path="design/email/header_template"}}
+
+<table>
+    <tr class="email-intro">
+        <td>
+            <p class="greeting">{{trans "Thanks %nickname," nickname=$review.getNickname()}}</p>
+            <p>
+                {{trans "Your latest customer review is live on  %store_name. We and all shoppers on %store_name appreciate the time you took to share your experience with this item." store_name=$store.getFrontendName()}}
+            </p>
+            <p>
+                {{trans "We really appreciate your feedback and hope to see you again soon."}}
+            </p>
+        </td>
+    </tr>
+</table>
+
+{{template config_path="design/email/footer_template"}}

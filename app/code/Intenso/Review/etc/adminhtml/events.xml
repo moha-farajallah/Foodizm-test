@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Intenso Commerce. All rights reserved.
+ * See License.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="review_save_after">
+        <observer name="intenso_review_save_after" instance="Intenso\Review\Observer\ReviewAfterSave" />
+    </event>
+    <event name="controller_action_postdispatch_review_product_post">
+        <observer name="adminhtml_review_product_post" instance="Intenso\Review\Observer\SyncReviewAfterSave" />
+    </event>
+    <event name="adminhtml_intenso_review_save">
+        <observer name="intenso_review_product_save" instance="Intenso\Review\Observer\SyncReviewAfterSave" />
+    </event>
+</config>

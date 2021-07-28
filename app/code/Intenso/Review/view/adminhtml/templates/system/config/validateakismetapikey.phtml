@@ -1,0 +1,64 @@
+<?php
+/**
+ * Copyright © Intenso Commerce. All rights reserved.
+ * See License.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/**
+ * @see \Intenso\Review\Block\Adminhtml\Comment\System\Config\Validateakismetapikey
+ */
+?>
+<script>
+require(['prototype'], function(){
+
+//<![CDATA[
+    function validateAkismetApiKey() {
+        var validationMessage = $('validation_result'),
+            button = $('<?php echo $block->getHtmlId() ?>');
+
+        params = {
+            akismet_api_key: $('<?php /* @escapeNotVerified */ echo $block->getAkismetApiKeyField(); ?>').value
+        };
+
+        new Ajax.Request('<?php /* @escapeNotVerified */ echo $block->getAjaxUrl() ?>', {
+            parameters: params,
+            onSuccess: function(response) {
+                var result = '<?php /* @escapeNotVerified */ echo __('Error during Akismet API Key verification.') ?>';
+                try {
+                    if (response.responseText.isJSON()) {
+                        response = response.responseText.evalJSON();
+                        result = response.message;
+                    }
+                    if (response.valid == 1) {
+                        validationMessage.removeClassName('hidden').addClassName('success');
+                        button.setStyle({
+                            background:    '#3FC380',
+                            borderColor:   '#3FC380',
+                            color:         '#FFFFFF'
+                        });
+                    } else {
+                        validationMessage.removeClassName('hidden').addClassName('error')
+                    }
+                } catch (e) {
+                    validationMessage.removeClassName('hidden').addClassName('error')
+                }
+                validationMessage.update(result);
+            }
+        });
+    }
+
+    window.validateAkismetApiKey = validateAkismetApiKey;
+//]]>
+
+});
+</script>
+<div class="actions actions-validate-vat">
+    <div id="validation_result" class="message-validation hidden"></div>
+    <button onclick="javascript:validateAkismetApiKey(); return false;" class="action-validate-vat" type="button" id="<?php echo $block->getHtmlId() ?>">
+        <span><?php echo $block->escapeHtml($block->getButtonLabel()) ?></span>
+    </button>
+</div>

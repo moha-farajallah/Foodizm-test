@@ -1,0 +1,74 @@
+ <!-- **
+ * @category   Ksolves
+ * @package    Ksolves_Deliverydate
+ * @author     Ksolves Team
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * -->
+
+<div class="ks-deliverydate-info">
+    <form class="form" id="deliverydate-form" novalidate="novalidate">
+        <fieldset id="co-deliverydate">
+            <!-- ko if: window.checkoutConfig.ksDeliverydateConfig.isEnabledDeliveryTime -->
+            <div class="ks-delivery-date" style="display:none;">
+                <div class="title">
+                    <span data-bind="text: window.checkoutConfig.ksDeliverydateConfig.getDeliveryLabel ? window.checkoutConfig.ksDeliverydateConfig.getDeliveryLabel : 'Delivery Date'"></span>
+                </div>
+                <div class="control">
+                    <input type="text" data-bind="ks_deliverydatepicker: true, value: ksDeliveryDate" name="ks-delivery-date" id="ks-delivery-date" readonly="readonly" onpaste="return false;" />
+                    <div id="ks-delivery-date-required"></div>
+                </div>
+            </div>
+            <!-- /ko -->
+
+            <!-- ko if: window.checkoutConfig.ksDeliverydateConfig.isEnabledDeliveryTimeSlot -->
+            <div class="ks-delivery-time">
+                <div class="title">
+                    <span data-bind="text: window.checkoutConfig.ksDeliverydateConfig.getDeliveryTimeSlotLabel ? window.checkoutConfig.ksDeliverydateConfig.getDeliveryTimeSlotLabel : 'Deliverydate TimeSlot'"></span>
+                </div>
+                <div class="control">
+                    <select class="select" name="ks-delivery-time" id="ks-delivery-time" data-bind="value: ksDeliverydateTimeSlot" defaultvalue="">
+						<option class="ks-delivery-time" disabled="" selected="" value="">--Please select a time slot.--</option>
+						<option value="08:00AM-12:00PM">08:00AM-12:00PM</option>
+						<option value="12:00PM-02:00PM">12:00PM-02:00PM</option>
+						<option value="02:00PM-04:00PM">02:00PM-04:00PM</option>
+						<option value="04:00PM-06:00PM">04:00PM-06:00PM</option>
+						<option value="06:00PM-09:00PM">06:00PM-09:00PM</option>
+					</select>
+                </div>
+            </div>
+            <!-- /ko -->
+
+            <!-- ko if: window.checkoutConfig.ksDeliverydateConfig.isEnabledDeliveryComment -->
+            <div class="ks-delivery-comment">
+                <div class="title">
+                    <span data-bind="text: window.checkoutConfig.ksDeliverydateConfig.getDeliveryCommentLabel ? window.checkoutConfig.ksDeliverydateConfig.getDeliveryCommentLabel : 'Deliverydate Comment'"></span>
+                </div>
+                <div class="control">
+					<select class="select" name="ks-delivery-comment" id="ks-delivery-comment" data-bind="value: ksDeliverydateComment" defaultvalue="">
+						<option value=""> --Please select an option.--</option>
+						<option value="電話">電話(Phone)</option>
+						<option value="メールマガジン">メールマガジン(Newsletter)</option>
+						<option value="フーラストア（WEB SHOP)">フーラストア（WEB SHOP)</option>
+						<option value="フーラストア（実店舗)">フーラストア（実店舗 - RETAIL STORE)</option>
+						<option value="LINE">LINE</option>
+						<option value="Instagram">Instagram</option>
+						<option value="Facebook">Facebook</option>
+						<option value="Youtube">Youtube</option>
+						<option value="チラシ">チラシ(Leaflets)</option>
+						<option value="Google検索">Google検索 (Google Ads)</option>
+						<option value="友人や知人から">友人や知人から(From friends and acquaintances)</option>
+						<option value="その他">その他(Others)</option>
+					</select>
+                </div>
+                <!--
+				<br>
+				<div class="input-box">
+                    <textarea name="ks-delivery-comment-others" id="ks-delivery-comment-others" rows="2" placeholder="指定してください。" defaultvalue=""></textarea>
+                </div>	
+                -->			
+            </div>
+            <!-- /ko -->
+        </fieldset>
+    </form>    
+</div>
+<br>

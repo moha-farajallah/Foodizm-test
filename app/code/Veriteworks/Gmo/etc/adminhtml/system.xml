@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="payment">
+            <group id="veritegmo" type="text" sortOrder="99" showInDefault="1" showInWebsite="1" showInStore="1" translate="label">
+                <label>GMO Payment Gateway</label>
+                <fieldset_css>complex</fieldset_css>
+                <field id="site_id" translate="label" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Site ID</label>
+                    <config_path>veritegmo/common/site_id</config_path>
+                </field>
+                <field id="site_password" translate="label" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Site Password</label>
+                    <config_path>veritegmo/common/site_password</config_path>
+                </field>
+                <field id="shop_id" translate="label" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Shop ID</label>
+                    <config_path>veritegmo/common/shop_id</config_path>
+                </field>
+                <field id="shop_password" translate="label" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Shop Password</label>
+                    <config_path>veritegmo/common/shop_password</config_path>
+                </field>
+                <field id="gateway_url" translate="label" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Gateway URL</label>
+                    <config_path>veritegmo/common/gateway_url</config_path>
+                </field>
+                <field id="token_url" translate="label" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Token JS URL</label>
+                    <config_path>veritegmo/common/token_url</config_path>
+                </field>
+
+                <include path="Veriteworks_Gmo::system/cc.xml"/>
+                <include path="Veriteworks_Gmo::system/ccmulti.xml"/>
+                <include path="Veriteworks_Gmo::system/cvs.xml"/>
+                <include path="Veriteworks_Gmo::system/atm.xml"/>
+            </group>
+        </section>
+    </system>
+</config>

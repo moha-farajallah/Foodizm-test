@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="payment" type="text" sortOrder="400" showInDefault="1" showInWebsite="1" showInStore="1">
+            <group id="gmo_payments" translate="label comment" type="text" sortOrder="5" showInDefault="1" showInStore="1" showInWebsite="1">
+                <label>GMO Monthly Credit Payment</label>
+                <comment>Accept monthly credit payments.</comment>
+                <attribute type="displayIn">recommended_solutions</attribute>
+                <fieldset_css>complex gmo-section</fieldset_css>
+                <frontend_model>Magento\Paypal\Block\Adminhtml\System\Config\Fieldset\Payment</frontend_model>
+                <group id="gmo_monthlycredit" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Monthly Credit</label>
+                    <field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                        <label>Enabled</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <config_path>payment/gmo_monthlycredit/active</config_path>
+                    </field>
+                    <field id="title" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Title</label>
+                        <config_path>payment/gmo_monthlycredit/title</config_path>
+                    </field>
+                    <field id="instructions" translate="label" type="textarea" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Instructions</label>
+                        <config_path>payment/gmo_monthlycredit/instructions</config_path>
+                    </field>
+                </group>
+            </group>
+        </section>
+    </system>
+</config>

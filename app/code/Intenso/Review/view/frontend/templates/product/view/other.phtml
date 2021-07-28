@@ -1,0 +1,13 @@
+<?php
+/**
+ * Copyright © Intenso Commerce. All rights reserved.
+ * See License.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+
+<?php /** @var $block \Magento\Review\Block\Product\View\Other */ ?>
+<?php $_product = $block->getProduct(); ?>
+<button type="button" class="action" onclick="location.href='<?php /* @escapeNotVerified */ echo $_product->getProductUrl() ?>'"><span><?php /* @escapeNotVerified */ echo __('Back to Product Info') ?></span></button>

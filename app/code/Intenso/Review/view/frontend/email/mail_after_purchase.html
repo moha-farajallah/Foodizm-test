@@ -1,0 +1,181 @@
+<!--
+/**
+ * Copyright © Intenso Commerce. All rights reserved.
+ * See License.txt for license details.
+ */
+-->
+<!--@subject {{trans "Please review your recent purchase at %store_name" store_name=$store.getFrontendName()}} @-->
+<!--@vars {
+"var product.getName()":"Product Name",
+"var order.getCustomerFirstname()":"Firstname",
+"var order.getCustomerLastname()":"Lastname",
+"var order.getCustomerEmail()":"Email",
+"var productUrl|raw":"Product URL",
+"var map.getCustomerToken()":"Customer Token",
+"var store.getFrontendName()":"Store Name",
+"var store.getBaseUrl()":"Store URL"
+} @-->
+
+{{template config_path="design/email/header_template"}}
+
+<table>
+    <tr>
+        <td style="font-family:inherit;font-family:inherit;color:#666666;padding:0;">
+            <p style="font-family:inherit;color:#666666;font-size:14px;margin:0;padding:0 0 10px;letter-spacing:0.21px;line-height:21px;text-align:left;">{{trans "Hello %customer_name," customer_name=$order.getCustomerFirstname()}}<br><br>{{trans "You've recently bought"}} <a href="{{var productUrl|raw}}" style="text-decoration:none;color:#1979c3">{{var product.getName()}}</a>, {{trans "what do you think about it?"}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+			<p><b>For every approved product review, you will get 200 Foula Points! </b></p>
+            <!--[if (mso)]>
+            <div style="text-align:center;font-family:Arial;">
+                <div style="width:99%;max-width:600px;background:#fff;margin:20px auto">
+                    <div style="text-align:center;font-size:14px;padding-bottom:18px;margin-bottom:18px">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td></td>
+                                    <td width="100%">
+                                        <div style="text-align:center;font-size:14px;">
+                                            </br>
+                                            <span style="font-size: 20px;color:#56575f">{{trans "Click below to rate (1-5):"}}</span>
+                                        </div>
+                                    </td>
+                                    <td width="15%"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table width="100%">
+                            <tr>
+                                <td width="25%"></td>
+                                <td width="10%">
+                                    <a href="{{var store.getBaseUrl()}}intenso_review/map/post/?utf8=✓&token={{var map.getCustomerToken()}}&store={{var store.getId()}}&rating=1&___store={{var store.getCode()}}" target="_blank" style="text-decoration: none;">
+                                        <div style="color: #FDC705;font-size:50px;width: 100%;height: 100%;">★</div>
+                                        <div style="color: black;font-size: 10px">1</div>
+                                    </a>
+                                </td>
+                                <td width="10%">
+                                    <a href="{{var store.getBaseUrl()}}intenso_review/map/post/?utf8=✓&token={{var map.getCustomerToken()}}&store={{var store.getId()}}&rating=2&___store={{var store.getCode()}}" target="_blank" style="text-decoration: none;">
+                                        <div style="color: #FDC705;font-size:50px;width: 100%;height: 100%;">★</div>
+                                        <div style="color: black;font-size: 10px">2</div>
+                                    </a>
+                                </td>
+                                <td width="10%">
+                                    <a href="{{var store.getBaseUrl()}}intenso_review/map/post/?utf8=✓&token={{var map.getCustomerToken()}}&store={{var store.getId()}}&rating=3&___store={{var store.getCode()}}" target="_blank" style="text-decoration: none;">
+                                        <div style="color: #FDC705;font-size:50px;width: 100%;height: 100%;">★</div>
+                                        <div style="color: black;font-size: 10px">3</div>
+                                    </a>
+                                </td>
+                                <td width="10%">
+                                    <a href="{{var store.getBaseUrl()}}intenso_review/map/post/?utf8=✓&token={{var map.getCustomerToken()}}&store={{var store.getId()}}&rating=4&___store={{var store.getCode()}}" target="_blank" style="text-decoration: none;">
+                                        <div style="color: #FDC705;font-size:50px;width: 100%;height: 100%;">★</div>
+                                        <div style="color: black;font-size: 10px">4</div>
+                                    </a>
+                                </td>
+                                <td width="10%">
+                                    <a href="{{var store.getBaseUrl()}}intenso_review/map/post/?utf8=✓&token={{var map.getCustomerToken()}}&store={{var store.getId()}}&rating=5&___store={{var store.getCode()}}" target="_blank" style="text-decoration: none;">
+                                        <div style="color: #FDC705;font-size:50px;width: 100%;height: 100%;">★</div>
+                                        <div style="color: black;font-size: 10px">5</div>
+                                    </a>
+                                </td>
+                                <td width="25%"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <![endif]-->
+            <!--[if !mso]><!-->
+            <div style="width:100%;padding:10px 0 20px 0;height:auto;min-height:360px">
+                <form accept-charset="UTF-8" action="{{var store.getBaseUrl()}}intenso_review/map/post/" method="get" target="_blank" style="text-align:center">
+                    <div style="margin:0;padding:0;display:inline">
+                        <input name="___store" type="hidden" value="{{var store.getCode()}}">
+                        <input name="utf8" type="hidden" value="✓">
+                    </div>
+                    <input id="token" name="token" type="hidden" value="{{var map.getCustomerToken()}}">
+                    <input name="store" type="hidden" value="{{var store.getId()}}">
+                    <table width="100%">
+                        <tr>
+                            <td style="font-family:Arial;font-family:inherit;text-align:left;font-size:12px;letter-spacing:0;color:#666666;padding:5px 0;font-weight:700;">{{trans "Rate:"}}</td>
+                        </tr>
+                        <tr>
+                            <td width="100%" style="font-family:Arial;font-family:inherit;color:#666666;color: #FDC705; direction: ltr;text-align:left">
+                                <span style="display:inline-block">
+                                    <span style="display:inline-block;float:left;margin-right:15px">
+                                        <input name="rating" type="radio" id="stars1" value="1" style="font-family:inherit;color:#666666;margin-right:2px;">
+                                        <label for="stars1">
+                                            <span style="font-size:16px;letter-spacing:0.21em;padding-left:0;">★</span>
+                                        </label>
+                                    </span>
+                                    <span style="display:inline-block;float:left;margin-right:15px">
+                                        <input name="rating" type="radio" id="stars2" value="2" style="font-family:inherit;color:#666666;margin-right:2px;">
+                                        <label for="stars2">
+                                            <span style="font-size:16px;letter-spacing:0.21em;padding-left:0;">★★</span>
+                                        </label>
+                                    </span>
+                                    <span style="display:inline-block;float:left;margin-right:15px">
+                                        <input name="rating" type="radio" id="stars3" value="3" style="font-family:inherit;color:#666666;margin-right:2px;">
+                                        <label for="stars3">
+                                            <span style="font-size:16px;letter-spacing:0.21em;padding-left:0;">★★★</span>
+                                        </label>
+                                    </span>
+                                </span>
+                                <span style="display:inline-block">
+                                    <span style="display:inline-block;float:left;margin-right:15px">
+                                        <input name="rating" type="radio" id="stars4" value="4" style="font-family:inherit;color:#666666;margin-right:2px;">
+                                        <label for="stars4">
+                                            <span style="font-size:16px;letter-spacing:0.21em;padding-left:0;">★★★★</span>
+                                        </label>
+                                    </span>
+                                    <span style="display:inline-block;float:left;margin-right:15px">
+                                        <input name="rating" type="radio" id="stars5" value="5" style="font-family:inherit;color:#666666;margin-right:2px;" checked>
+                                        <label for="stars5">
+                                            <span style="font-size:16px;letter-spacing:0.21em;padding-left:0;">★★★★★</span>
+                                        </label>
+                                    </span>
+                                </span>
+                            </td>
+                        </tr>
+                    </table>
+                    <table width="100%">
+                        <tr>
+                            <td width="100%" style="font-family:Arial;font-family:inherit;color:#666666">
+                                <table cellspacing="0" cellpadding="0" border="0" style="width:100%">
+                                    <tr>
+                                        <td style="font-family:Arial;font-family:inherit;text-align:left;font-size:12px;letter-spacing:0;color:#666666;padding:5px 0;font-weight:700;">{{trans "Review Title:"}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-family:Arial;font-family:inherit;color:#666666">
+                                            <ul style="margin:0;padding:0;">
+                                                <input type="text" name="title" style="color:#666666;width:99%;padding-left:3px;height:33px;font-size:1em;border:solid 1px #dbddde;font-weight:lighter;font-family:inherit;border-radius:5px;-webkit-border-radius:5px;-moz-border-radius:5px"><br>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="100%" style="font-family:Arial;font-family:inherit;text-align:left;font-size:12px;letter-spacing:0;color:#666666;padding:5px 0;font-weight:700;">{{trans "Review:"}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-family:Arial;font-family:inherit;color:#666666">
+                                            <ul style="margin:0;padding:0;">
+                                                <textarea name="detail" cols="40" rows="5" style="color:#666666;width:99%;padding-left:3px;height:60px;font-size:1em;border:solid 1px #dbddde;font-weight:lighter;font-family:inherit;border-radius:5px;-webkit-border-radius:5px;-moz-border-radius:5px"></textarea><br>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-family:Arial;font-family:inherit;color:#666666;text-align:center">
+                                            <input type="submit" style="font-family:inherit;color:#666666;text-decoration: none; min-width: 220px; min-height:36px; font-weight:bold; background-color:#1cc286; color: #ffffff; margin-top: 15px; font-size: 14px; -moz-border-radius:3px;-webkit-border-radius: 3px;border-radius: 3px; padding: 6px 13px; border: none; " value="{{trans 'Submit Your Review'}}">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+            <!--<![endif]-->
+            <div style="color:#999999;line-height:13px;font-size:14px;letter-spacing:-0.22px;text-align:center;">
+                <p style="margin:0">{{trans "We really appreciate your feedback and hope to see you again soon."}}<br><br>
+                    {{trans "Thank you from"}} <a href="{{var store.getBaseUrl()}}" style="text-decoration:none;color:#1979c3">{{var store.getFrontendName()}}</a><br><br><br>
+                    {{trans "Too soon? If you have not received the product yet, please"}} <a href="{{var store.getBaseUrl()}}contact/" style="text-decoration:none;color:#1979c3">{{trans "contact us"}}</a></p>
+            </div>
+        </td>
+    </tr>
+</table>
+
+{{template config_path="design/email/footer_template"}}

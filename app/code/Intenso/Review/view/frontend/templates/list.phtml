@@ -1,0 +1,54 @@
+<?php
+/**
+ * Copyright © Intenso Commerce. All rights reserved.
+ * See License.txt for license details.
+ */
+?>
+<?php
+    $imageUrl = $this->helper('Magento\Catalog\Helper\Image')
+        ->init($block->getProduct(), 'product_page_image_small')
+        ->setImageFile($block->getImageFile())
+        ->getUrl();
+?>
+<?php $_product = $block->getProduct(); ?>
+<div class="review-list-header">
+    <div class="review-list-header-info">
+        <img src="<?php /* @escapeNotVerified */ echo $imageUrl; ?>" alt="" width="60" height="60" >
+        <h2><?php echo __('Ratings & reviews for') ?></h2>
+        <h1><a href="<?php echo $_product->getProductUrl(); ?>"><?php echo $block->getProduct()->getName(); ?></a></h1>
+    </div>
+    <div class="review-list-header-actions">
+        <?php echo $this->getChildHtml('other');?>
+        <button type="button" class="action primary intenso-add-your-review-link"><span><?php echo __('Write a customer review') ?></span></button>
+    </div>
+</div>
+<div id="product-review-container" data-role="product-review">
+    <div class="block review-list" id="customer-reviews" data-base-url="<?php echo $block->getUrl('intenso_review')?>">
+        <div class="block-content" data-role="loader">
+            <div data-role="loader" class="loading-mask" id="reviews-loader">
+                <div class="loader">
+                    <img src="<?= $block->getViewFileUrl('Intenso_Review::images/loader.gif'); ?>"
+             alt="<?php /* @escapeNotVerified */ echo __('Loading...') ?>">
+                </div>
+            </div>
+            <?php echo $block->getChildHtml('histogram') ?>
+            <div class="intenso-review-detail" id="intenso-review-detail">
+                <?php // reviews inserted via AJAX - app/code/Intenso/Review/view/frontend/web/js/process-reviews.js ?>
+            </div>
+        </div>
+        <?php echo $block->getChildHtml('comment_form') ?>
+    </div>
+</div>
+<?php echo $block->getChildHtml('reviews.tab'); ?>
+<?php echo $block->getChildHtml('review_form'); ?>
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Intenso_Review/js/process-reviews": {
+                "productReviewUrl": "<?php /* @escapeNotVerified */ echo $block->getProductReviewUrl();?>",
+                "isAjax": "true"
+            }
+        }
+    }
+</script>

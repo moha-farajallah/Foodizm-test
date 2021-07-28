@@ -1,0 +1,59 @@
+<div class="block block-cards">
+    <?php $_cards = $block->getCards(); ?>
+    <div class="block-title card">
+        <?php if (count($_cards) < 5): ?>
+            <a class="action primary add" href="<?= /* @noEscape */ $block->getUrl('gmo/card/edit') ?>">
+                <span><?= $block->escapeHtml(__('Add New')) ?></span>
+            </a>
+        <?php endif; ?>
+    </div>
+    <div class="block-content">
+        <?= $block->getChildHtml()?>
+        <?php if (count($_cards) > 0): ?>
+            <div class="table-wrapper cards-registered">
+                <table class="data table table-card-items recent" id="my-cards-table">
+                    <caption class="table-caption"><?= $block->escapeHtml(__('Registard Cards')) ?></caption>
+                    <thead>
+                    <tr>
+                        <th scope="col" class="col card-number"><?= $block->escapeHtml(__('Credit Card Number')) ?></th>
+                        <th scope="col" class="col expire"><?= $block->escapeHtml(__('Expiration Date')) ?></th>
+                        <th scope="col" class="col actions"><?= $block->escapeHtml(__('Delete')) ?></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach ($_cards as $_card): ?>
+                        <tr>
+                            <td data-th="<?= $block->escapeHtml(__('Credit Card Number')) ?>" class="col id">
+                                <?= $block->escapeHtml($_card['card_number']) ?>
+                            </td>
+                            <td data-th="<?= $block->escapeHtml(__('Expiration Date')) ?>" class="col date">
+                                <?= $block->escapeHtml($_card['card_valid_term']) ?>
+                            </td>
+                            <td data-th="<?= $block->escapeHtml(__('Actions')) ?>" class="col actions">
+                                <a class="action delete"
+                                   href="#"
+                                   role="delete-card"
+                                   data-card="<?= $block->escapeHtmlAttr($_card['customer_card_id']) ?>">
+                                    <span><?= $block->escapeHtml(__('Delete')) ?></span>
+                                </a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        <?php else: ?>
+            <div class="message info empty"><span><?= $block->escapeHtml(__('You have no cards.')); ?></span></div>
+        <?php endif; ?>
+    </div>
+</div>
+<script type="text/x-magento-init">
+    {
+        ".page-main": {
+            "deleteCard": {
+                "deleteCard": "table.table-card-items tr td a[role='delete-card']",
+                "deleteUrlPrefix": "<?= /* @noEscape */ $block->getDeleteUrl() ?>id/"
+            }
+        }
+    }
+</script>

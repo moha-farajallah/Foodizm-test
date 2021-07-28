@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Intenso Commerce. All rights reserved.
+ * See License.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="catalog_product_view"/>
+    <body>
+        <referenceContainer name="product.info.media" remove="true"/>
+        <referenceContainer name="product.info.price" remove="true"/>
+        <referenceBlock name="page.main.title" remove="true"/>
+        <referenceBlock name="product.info" remove="true"/>
+        <referenceBlock name="product.info.overview" remove="true"/>
+        <referenceBlock name="product.price.tier" remove="true"/>
+        <referenceBlock name="product.info.social" remove="true"/>
+        <referenceBlock name="product.attributes" remove="true"/>
+        <referenceBlock name="product.info.description" remove="true"/>
+        <referenceBlock name="product.info.media.image" remove="true"/>
+        <referenceBlock name="product.info.name" remove="true"/>
+        <referenceContainer name="content">
+            <container name="product.info.details" htmlTag="div" htmlClass="product info detailed">
+                <block class="Magento\Review\Block\Product\Review" name="reviews.tab" as="reviews" template="Intenso_Review::list.phtml" group="detailed_info">
+                    <block class="Magento\Review\Block\Form" name="product.review.form" as="review_form">
+                        <action method="setTemplate">
+                            <argument name="template" xsi:type="string">Intenso_Review::form.phtml</argument>
+                        </action>
+                        <block class="Magento\Framework\View\Element\FormKey" name="formkey"/>
+                        <container name="product.review.form.fields.before" as="form_fields_before" label="Review Form Fields Before"/>
+                    </block>
+                    <block class="Intenso\Review\Block\Comment\AddComment" name="review_comment_form" as="comment_form" template="Intenso_Review::comment/form.phtml" />
+                </block>
+            </container>
+        </referenceContainer>
+        <referenceBlock name="reviews.tab">
+            <block class="Intenso\Review\Block\Product\ReviewRenderer" name="product_review_histogram" as="histogram" template="Intenso_Review::product/view/histogram.phtml">
+                <arguments>
+                    <argument name="is_ajax" xsi:type="boolean">true</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Review\Block\Product\View\Other" name="product.info.other" as="other" template="Intenso_Review::product/view/other.phtml"/>
+        </referenceBlock>
+    </body>
+</page>

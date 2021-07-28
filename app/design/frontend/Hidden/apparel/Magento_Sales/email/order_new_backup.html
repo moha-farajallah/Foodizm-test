@@ -1,0 +1,64 @@
+<!--@subject {{trans "【フーラストア HYPER SALE】 ご注文ありがとうございます (自動送信)" store_name=$store.getFrontendName()}} @-->
+{{trans "%last_name %first_name 様," last_name=$order.getCustomerLastname() first_name=$order.getCustomerFirstname()}}
+
+いつも、Foula Storeをご利用いただきありがとうございます。
+{{trans "%last_name %first_name 様," last_name=$order.getCustomerLastname() first_name=$order.getCustomerFirstname()}}のご注文明細書をお送りさせていただきます。
+
+注文コード：{{trans "%order_number" order_number=$order.getIncrementId()}}
+{{block class='Magento\\Framework\\View\\Element\\Template' area='frontend' template='Magento_Sales::order/order_date_info.phtml' order=$order}}
+■注文者の情報
+氏名：{{trans "%last_name %first_name" last_name=$order.getCustomerLastname() first_name=$order.getCustomerFirstname()}}
+氏名（フリガナ）：
+{{block class='Magento\\Framework\\View\\Element\\Template' area='frontend' template='Magento_Sales::order/billing_info.phtml' order=$order}}
+■注文内容
+------------------------------------------------------------
+{{block class='Magento\\Framework\\View\\Element\\Template' area='frontend' template='Magento_Sales::order/order_item_info.phtml' order=$order}}
+■届け先の情報
+[送付先1]
+{{block class='Magento\\Framework\\View\\Element\\Template' area='frontend' template='Magento_Sales::order/shipping_info.phtml' order=$order}}
+■通信欄
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+■ご質問
+　ご質問・ご不明な点がありましたらフーラストアまでお問い合わ
+　せください。
+　お問い合わせの際はお名前・電子メールアドレスをお書き添の上
+　電子メールまたはお電話にてお問い合わせください。
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+■こちらの注文に覚えがない場合は？
+　大変お手数ですが、フーラストアまでお知らせください。
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+■プライバシーポリシーについて
+　フーラストアではお客様の個人情報を適切に保護するため、
+　その取り扱いにつきましては細心の注意を払っています。
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+■注意事項
+・ご注文いただいた商品は、商品受付期間終了後より順次発送致します。
+・在庫切れ商品がある場合は手配完了後、ご注文内容が全て揃ってからの発送になりますのでご了承下さい。
+　(※4週間以上かかる場合がございます)
+・お届け日の指定はできませんのでご注意ください(時間指定は可能)。
+・いかなる理由であってもご注文後のキャンセル・返品交換は固くお断りさせていただきます。
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+■ご挨拶
+
+フーラストアをご利用いただき、誠にありがとうございます。
+プロの美容商材販売店として、お客様がお探しの美容商材を
+いち早く取り揃え、最適な価格でご提供いたします。
+
+充実したアフターサポートのもと、お客様のニーズにお応えして
+いくのが、最も大切な使命と心得ております。
+
+今後ともフーラストアをよろしくお願いします。
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+フーラストア　　株式会社ケイトオブ東京
+
+住　　所　〒150-0001 東京都渋谷区神宮前6-19-20第15荒井ビル7階
+Ｕ Ｒ Ｌ　https://www.foula-store.jp
+メ ー ル　customer@foula.jp
+営業時間　10:00～19:00　(平日)
+電話番号　0120-428-355
+FAX番号　0120-428-818　(24時間受付)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

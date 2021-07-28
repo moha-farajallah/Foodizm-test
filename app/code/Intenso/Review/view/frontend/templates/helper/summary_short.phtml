@@ -1,0 +1,52 @@
+<?php
+/**
+ * Copyright © Intenso Commerce. All rights reserved.
+ * See License.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php $url = $block->getReviewsUrl() . '#reviews'; ?>
+<?php $urlForm = $block->getReviewsUrl() . '#review-form'; ?>
+<?php if ($block->getReviewsCount()): ?>
+<?php $rating = $block->getRatingSummary(); ?>
+<div class="product-reviews-summary short<?= !$rating ? ' no-rating' : ''?>">
+    <?php if ($rating):?>
+    <div class="rating-summary<?php if ($block->displaySummaryPopover()) echo ' summary-popover'; ?>"
+        data-review-product="<?= $block->getProduct()->getId()?>"
+        data-review-url="<?= $block->getSummaryUrl($block->getProduct()->getId())?>">
+        <span class="label"><span><?= /* @escapeNotVerified */ __('Rating') ?>:</span></span>
+        <div class="rating-result">
+            <span style="width:<?= /* @escapeNotVerified */ $rating; ?>%"><span><?= /* @escapeNotVerified */ $rating; ?>%</span></span>
+            <?php if ($block->displaySummaryPopover()): ?>
+            <div class="summary-popover-content">
+                <div class="review-popover">
+                    <div class="loader">
+                        <img src="<?= $block->getViewFileUrl('Intenso_Review::images/loader.gif'); ?>"
+                 alt="<?= /* @escapeNotVerified */ __('Loading...') ?>">
+                    </div>
+                </div>
+            </div>
+            <?php endif; ?>
+        </div>
+        <?php if ($block->displaySummaryPopover()): ?>
+        <div class="summary-popover-corner"></div>
+        <?php endif;?>
+    </div>
+    <?php endif;?>
+    <?php if ($block->canDisplayReviewCount()): ?>
+    <div class="reviews-actions">
+        <a class="action view" href="<?= /* @escapeNotVerified */ $url ?>"><?= /* @escapeNotVerified */ $block->getReviewsCount() ?></a>
+    </div>
+    <?php endif; ?>
+</div>
+<?php elseif ($block->getDisplayIfEmpty()): ?>
+<div class="product-reviews-summary short empty">
+    <div class="reviews-actions">
+        <a class="action add" href="<?= /* @escapeNotVerified */ $urlForm; ?>">
+            <?= /* @escapeNotVerified */ __('Be the first to review this product') ?>
+        </a>
+    </div>
+</div>
+<?php endif; ?>

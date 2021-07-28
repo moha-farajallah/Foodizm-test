@@ -1,0 +1,18 @@
+<?php
+/**
+ * Copyright © Intenso Commerce. All rights reserved.
+ * See License.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/**
+ * @var $block \Intenso\Review\Block\Map\Success
+ */
+?>
+<div class="map-thank-you-message">
+    <?php /* @escapeNotVerified */ echo __('Thank you for posting a review!') ?>
+    <span>
+        <?php /* @escapeNotVerified */ echo __('We and all shoppers on %1 appreciate the time you took to share your experience with this item.', $block->getStoreName()) ?>
+    </span>
+</div>

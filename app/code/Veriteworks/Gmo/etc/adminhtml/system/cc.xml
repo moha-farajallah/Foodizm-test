@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<include xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_include.xsd">
+    <group id="veritegmo_cc" type="text" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="1" translate="label comment">
+        <label>Credit Card</label>
+        <fieldset_css>veritegmo-method-cc</fieldset_css>
+        <attribute type="activity_path">payment/veritegmo_cc/active</attribute>
+        <field id="title" translate="label" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Title</label>
+            <config_path>payment/veritegmo_cc/title</config_path>
+        </field>
+        <field id="active" type="select" translate="label" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Enabled</label>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            <config_path>payment/veritegmo_cc/active</config_path>
+        </field>
+        <field id="payment_action" type="select" translate="label" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Auth Type</label>
+            <source_model>Veriteworks\Gmo\Model\Source\PaymentAction</source_model>
+            <config_path>payment/veritegmo_cc/payment_action</config_path>
+        </field>
+<!--        <field id="use_token" type="select" translate="label" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">-->
+<!--            <label>Use Token Payment</label>-->
+<!--            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>-->
+<!--            <config_path>payment/veritegmo_cc/use_token</config_path>-->
+<!--        </field>-->
+        <field id="use_3dsecure" type="select" translate="label" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Use 3D Secure</label>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            <config_path>payment/veritegmo_cc/use_3dsecure</config_path>
+        </field>
+        <field id="tenant_name" type="text" translate="label" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Tenant Name</label>
+            <config_path>payment/veritegmo_cc/tenant_name</config_path>
+            <depends>
+                <field id="use_3dsecure">1</field>
+            </depends>
+        </field>
+        <!--<field id="enable_autoremove" type="select" translate="label" sortOrder="7" showInDefault="1" showInWebsite="1" showInStore="1">-->
+            <!--<label>Enable Automatic Payment Review Order Removing</label>-->
+            <!--<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>-->
+            <!--<config_path>payment/veritegmo_cc/enable_autoremove</config_path>-->
+        <!--</field>-->
+        <field id="reg_active" type="select" translate="label" sortOrder="8" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Enable Registaring Card Info</label>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            <config_path>payment/veritegmo_cc/reg_active</config_path>
+        </field>
+        <field id="cctypes" type="multiselect" translate="label" sortOrder="9" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Credit Card Types</label>
+            <source_model>Veriteworks\Gmo\Model\Source\Cctypes</source_model>
+            <config_path>payment/veritegmo_cc/cctypes</config_path>
+        </field>
+        <field id="useccv" type="select" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Use Security Code</label>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            <config_path>payment/veritegmo_cc/useccv</config_path>
+        </field>
+        <field id="payment_type" type="multiselect" translate="label" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Payment Types</label>
+            <source_model>Veriteworks\Gmo\Model\Source\Paymenttype</source_model>
+            <config_path>payment/veritegmo_cc/payment_type</config_path>
+        </field>
+        <field id="split_count" type="multiselect" translate="label" sortOrder="12" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Split Count</label>
+            <source_model>Veriteworks\Gmo\Model\Source\Splittype</source_model>
+            <config_path>payment/veritegmo_cc/split_count</config_path>
+        </field>
+        <field id="use_holder_name" type="select" translate="label" sortOrder="13" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Use Holder Name</label>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            <config_path>payment/veritegmo_cc/use_holder_name</config_path>
+        </field>
+        <field id="min_order_total" translate="label" sortOrder="99" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Minimum Order Total</label>
+            <config_path>payment/veritegmo_cc/min_order_total</config_path>
+        </field>
+        <field id="max_order_total" translate="label" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Maximum Order Total</label>
+            <config_path>payment/veritegmo_cc/max_order_total</config_path>
+        </field>
+        <field id="sort_order" translate="label" type="text" sortOrder="230" showInDefault="1" showInWebsite="1" showInStore="0">
+            <label>Sort Order</label>
+            <frontend_class>validate-number</frontend_class>
+            <config_path>payment/veritegmo_cc/sort_order</config_path>
+        </field>
+        <field id="debug" type="select" translate="label" sortOrder="999" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Debug</label>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            <config_path>payment/veritegmo_cc/debug</config_path>
+        </field>
+    </group>
+</include>

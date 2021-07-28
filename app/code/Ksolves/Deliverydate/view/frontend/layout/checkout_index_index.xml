@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Ksolves
+ *
+ * @category    Ksolves
+ * @package     Ksolves_Deliverydate
+ * @copyright   Copyright (c) Ksolves (https://www.ksolves.com/)
+ * @license     http://opensource.org/licenses/osl-3.0.php
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Ksolves_Deliverydate::css/ksolves_style.css"/>
+        <css src="Ksolves_Deliverydate::css/font-awesome.min.css"/>
+    </head>
+    <body>
+        <referenceBlock name="checkout.root">
+            <arguments>
+                <argument name="jsLayout" xsi:type="array">
+                    <item name="components" xsi:type="array">
+                        <item name="checkout" xsi:type="array">
+                            <item name="children" xsi:type="array">
+                                <item name="steps" xsi:type="array">
+                                    <item name="children" xsi:type="array">
+                                        <item name="shipping-step" xsi:type="array">
+                                            <item name="children" xsi:type="array">
+                                                <item name="shippingAddress" xsi:type="array">
+                                                    <item name="children" xsi:type="array">
+                                                        <item name="ks-deliverydate-info" xsi:type="array">
+                                                            <item name="component" xsi:type="string">Ksolves_Deliverydate/js/view/ks-deliverydate-info</item>
+                                                            <item name="displayArea" xsi:type="string">shippingAdditional</item>
+                                                            <item name="config" xsi:type="array">
+                                                                <item name="componentDisabled" xsi:type="helper" helper="Ksolves\Deliverydate\Helper\Data::isModuleDisabled"/>
+                                                            </item>
+                                                        </item>
+                                                    </item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                    </item>
+                                </item>
+                            </item>
+                        </item>
+                    </item>
+                </argument>
+            </arguments>
+        </referenceBlock>
+        <referenceContainer name="before.body.end">
+            <block class="Ksolves\Deliverydate\Block\Sales\DisableDeliveryDate"
+                name="ksolves.delivery.date" as="delivery" template="Ksolves_Deliverydate::sales/deliverydate.phtml" />
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,124 @@
+<!--
+ * Ksolves
+ *
+ * @category    Ksolves
+ * @package     Ksolves_Deliverydate
+ * @copyright   Copyright (c) Ksolves (https://www.ksolves.com/)
+ * @license     http://opensource.org/licenses/osl-3.0.php
+ * -->
+<script type="text/javascript">
+	function findDeliveryDateOption()
+	{
+		var deliveryDate = document.getElementById("ks-delivery-date").value;
+        jQuery.ajax({
+	        type: "POST",
+	        url: '<?php echo $this->getUrl("deliverydate/timeslot/getdelivery"); ?>',
+	        data:{today_date:deliveryDate},
+	        dataType: "json",
+	        showLoader: true,
+	        success: function(response) {
+	            if (response == "") {
+                    jQuery('#ks-delivery-time').html('');
+		            jQuery('#ks-delivery-time').append(`<option class="ks-delivery-time" disabled selected value> --Please select time slot--</option>`);
+		            jQuery('#ks-delivery-time').append(`<option>No TimeSlot Available</option>`);
+	            }else{
+				    jQuery('#ks-delivery-time').html('');
+					jQuery('#ks-delivery-time').append(`<option class="ks-delivery-time" disabled selected value> --Please select time slot--</option>`);
+					jQuery.each(response, function (i,value) {
+					jQuery('#ks-delivery-time').append(`<option value="${value}">${value}</option>`); 
+					})
+	            }			         
+	        }
+		}); 
+	}
+
+	function getDeliveryDateOption()
+	{
+		var deliveryDate = document.getElementById("ks-delivery-date").value;
+        jQuery.ajax({
+	        type: "GET",
+	        url: '<?php echo $this->getUrl("deliverydate/timeslot/getdelivery"); ?>',
+	        data: {today_date:deliveryDate},
+	        showLoader: true,
+	        success: function(feedback) {	
+	        	var dataJSON = JSON.parse(feedback);
+	        	if (dataJSON == "") {
+	        		jQuery('#ks-delivery-time').html('');
+		            jQuery('#ks-delivery-time').append(`<option class="ks-delivery-time" disabled selected value> --Please select time slot--</option>`);
+		            jQuery('#ks-delivery-time').append(`<option>No TimeSlot Available</option>`);
+	        	}else{
+	        		jQuery('#ks-delivery-time').html('');
+		            jQuery('#ks-delivery-time').append(`<option class="ks-delivery-time" disabled selected value> --Please select time slot--</option>`);
+		            jQuery.each(dataJSON, function (i,value) {
+		              jQuery('#ks-delivery-time').append(`<option value="${value}">${value}</option>`); 
+		            })	
+	        	}	         
+	        }
+		}); 
+	}
+
+	function blankDeliveryDateOption()
+	{
+		jQuery('#ks-delivery-time').html('');
+        jQuery('#ks-delivery-time').append(`<option class="ks-delivery-time" disabled selected value> --Please select time slot--</option>`);        
+	}
+</script> 
+
+<script type="text/javascript">
+require(['jquery'],function(jQuery){
+    jQuery(document).ready(checkContainer);
+    function checkContainer(){
+	    if(jQuery('#ks-delivery-date').is(':visible')){ 
+	    	var deliveryDate = document.getElementById("ks-delivery-date").value;
+	    	if (deliveryDate != '') {
+                getDeliveryDateOption();
+	    	}else{
+	    		blankDeliveryDateOption();
+	    	}
+	        document.getElementById('ks-delivery-date').change = function() {
+	      	    findDeliveryDateOption();     
+	        };
+	    }
+		else{
+	    	setTimeout(checkContainer, 1000);
+	    }
+
+	    
+
+	    try {
+			var feedback = jQuery("#ks-delivery-comment").val();
+
+		    if(feedback.length > 0){
+		    	jQuery("#checkoutNextButton").attr('disabled', false); 
+		    }
+		    else{
+		    	jQuery("#checkoutNextButton").attr('disabled', true); 
+		    }
+		}
+		catch(err) {
+			jQuery("#checkoutNextButton").attr('disabled', true); 
+		}
+
+	    
+		jQuery("#ks-delivery-comment").on("change",function (event) { 
+			try {
+				var feedback = jQuery("#ks-delivery-comment").val();
+
+			    if(feedback.length > 0){
+			    	jQuery("#checkoutNextButton").attr('disabled', false); 
+			    }
+			    else{
+			    	jQuery("#checkoutNextButton").attr('disabled', true); 
+			    }
+			}
+			catch(err) {
+				jQuery("#checkoutNextButton").attr('disabled', true); 
+			}
+					
+		});
+    }
+});
+</script>
+
+
+

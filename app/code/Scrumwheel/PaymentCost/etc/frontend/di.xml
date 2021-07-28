@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Paypal\Model\Cart">
+        <plugin name="update_paypal_fee_order" type="Scrumwheel\PaymentCost\Plugin\UpdateFeeForOrder"/>
+    </type>
+    <type name="Magento\Paypal\Model\Api\Nvp">
+        <plugin name="log_paypal_nvp_request" type="Scrumwheel\PaymentCost\Plugin\LogPayPalNVPRequest"/>
+    </type>
+</config>

@@ -1,0 +1,39 @@
+<?php
+/**
+ * Copyright © Intenso Commerce. All rights reserved.
+ * See License.txt for license details.
+ */
+?>
+<?php
+$helper = $this->helper(\Intenso\Review\Helper\Data::class);
+list($rating, $meter, $percentage) = $block->getProductStat($block->getProduct()->getId());
+?>
+<?php if ($block->getReviewsCount()): ?>
+    <div class="intenso-rating-box">
+        <div class="intenso-rating-summary">
+            <?php echo __('%1 out of 5 stars', $rating); ?>
+        </div>
+        <div class="intenso-rating-histogram">
+        <?php for ($i=5; $i >= 1; $i--): ?>
+            <div class="intenso-rating-bar-container container-<?php echo $i; ?>">
+                <?php if ($percentage[$i] > 0): ?>
+                    <a class="rating-label" href="<?php echo $block->getReviewsUrl(true) . $helper->getFilterQuerystring($i); ?>" title="<?php echo __('Click to see all %1 star reviews', $i);?>"><span class="star-tiny"></span><?php echo $i; ?></a>
+                <?php else: ?>
+                    <span class="rating-label"><span class="star-tiny"></span><?php echo $i; ?></span>
+                <?php endif; ?>
+                <a class="meter-bar" style="width: <?php echo $meter[$i]; ?>%" href="<?php echo $block->getReviewsUrl(true) ?><?php echo $helper->getFilterQuerystring($i); ?>" title="<?php echo __('Click to see all %1 star reviews', $i);?>">
+                    <span class="hidden"><?php echo __('Click to see all %1 star reviews', $i);?></span>
+                    <span class="rating-percentage"><?php if ($percentage[$i] > 0) echo $percentage[$i] . '%'; ?></span>
+                </a>
+            </div>
+        <?php endfor; ?>
+        </div>
+        <?php if ($block->getReviewsCount() > $helper->getNumReviewsForProductPage()): ?>
+            <div class="intenso-summary-action">
+                <a href="<?php echo $block->getReviewsUrl(true); ?>"><?php echo __('See all %1 reviews', $block->getReviewsCount()) ?></a>
+            </div>
+        <?php endif; ?>
+    </div>
+<?php else: ?>
+    <p class="no-rating"><a href="<?php echo $block->getReviewsUrl() ?>#post-review"><?php echo __('Be the first to review this product') ?></a></p>
+<?php endif; ?>

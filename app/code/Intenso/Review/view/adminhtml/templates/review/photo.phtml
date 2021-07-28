@@ -1,0 +1,60 @@
+<?php
+/**
+ * Copyright © Intenso Commerce. All rights reserved.
+ * See License.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php if ($block->getReviewPhotos()->count()): ?>
+    <ul class="intenso-review-photo-thumb">
+    <?php foreach ($block->getReviewPhotos() as $photo): ?>
+        <li onclick="jQuery('#customer-photos-modal').modal('openModal');"><img src="<?php echo $block->getBaseMediaUrl() . $photo->getFile(); ?>" height="50"></li>
+    <?php endforeach; ?>
+    </ul>
+    <div id="customer-photos-modal">
+        <div class="customer-photos-slider">
+            <?php foreach ($block->getReviewPhotos() as $photo): ?>
+            <div><img src="<?php echo $block->getBaseMediaUrl() . $photo->getFile(); ?>" width="100%"></div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+    <script>
+        require([
+            'jquery',
+            'slick',
+            'Magento_Ui/js/modal/modal'
+        ], function($) {
+            $(function () {
+                $('#customer-photos-modal').modal({
+                    type: 'slide',
+                    modalClass: 'intenso-modal',
+                    autoOpen: false,
+                    responsive: true,
+                    innerScroll: true,
+                    clickableOverlay: true,
+                    title: $.mage.__('Customer Photos'),
+                    buttons: [{
+                        text: $.mage.__('Close'),
+                        class: 'intenso-close-button',
+                        click: function () {
+                            this.closeModal();
+                        }
+                    }],
+                    opened: function(event) {
+                        if (!$('.customer-photos-slider').hasClass('slick-initialized')) {
+                            $('.customer-photos-slider').slick({
+                                dots: true,
+                                infinite: false,
+                                adaptiveHeight: true
+                            });
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+<?php else: ?>
+    <?php /* @escapeNotVerified */ echo __("This review doesn’t include photos") ?>
+<?php endif; ?>

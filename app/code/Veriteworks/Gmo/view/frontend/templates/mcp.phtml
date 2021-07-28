@@ -1,0 +1,25 @@
+<?php
+$data = $block->getMcpData();
+?>
+<html>
+    <head>
+    </head>
+    <body>
+        <form name="McpStartCall" action="<?= /** @noEscape */$block->getDestUrl();?>" method="POST">
+            <noscript>
+                <center>
+                    <h2>
+                        3-D セキュア認証を続けます。<br> ボタンをクリックしてください。
+                    </h2>
+                    <input type="submit" value="OK">
+                </center>
+            </noscript>
+            <input type="hidden" name="AccessID" value="<?= /** @noEscape */$data->getAccessId();?>" />
+            <input type="hidden" name="Token" value="<?= /** @noEscape */$data->getToken();?>" />
+        </form>
+        <script >
+            <!--
+            document.McpStartCall.submit(); //-->
+        </script>
+    </body>
+</html>

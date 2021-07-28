@@ -1,0 +1,48 @@
+<?php
+/**
+ * Ksolves
+ *
+ * @category    Ksolves
+ * @package     Ksolves_Deliverydate
+ * @copyright   Copyright (c) Ksolves (https://www.ksolves.com/)
+ * @license     http://opensource.org/licenses/osl-3.0.php
+ */
+
+/** @var Ksolves\Deliverydate\Block\Sales\Order\View\DeliveryDateInfo $block */
+
+$data = $block->getDeliverydateInformation(); ?>
+
+<div class="box-content ks-deliverydate-info">
+    <?php if ($data->getData('ksDeliveryDate')) : ?>
+        <?php if (!empty($block->getDeliveryLabel())) {?>
+           <br><strong><?= $block->getDeliveryLabel() ?></strong>
+        <?php }else{ ?>
+            <br><strong><?php echo __('Delivery Date:') ?></strong>
+        <?php } ?>
+        <br><span><?= filter_var($data->getData('ksDeliveryDate'), FILTER_SANITIZE_STRING) ?></span>
+    <?php endif; ?>
+
+    <?php if ($data->getData('ksDeliverydateTimeSlot')) : ?>
+        <?php if (!empty($block->getDeliveryTimeSlotLabel())) {?>
+           <br><strong><?= $block->getDeliveryTimeSlotLabel() ?></strong>
+        <?php }else{ ?>
+            <br><strong><?php echo __('Deliverydate TimeSlot:') ?></strong>
+        <?php } ?>
+        <br><span><?= filter_var($data->getData('ksDeliverydateTimeSlot'), FILTER_SANITIZE_STRING) ?></span>
+    <?php endif; ?>
+
+    <?php if ($data->getData('ksDeliverydateComment')) : ?>
+        <?php if (!empty($block->getDeliveryCommentLabel())) {?>
+           <br><strong><?= $block->getDeliveryCommentLabel() ?></strong>
+        <?php }else{ ?>
+            <br><strong><?php echo __('Deliverydate Comment:') ?></strong>
+        <?php } ?>
+        <br><span><?= filter_var($data->getData('ksDeliverydateComment'), FILTER_SANITIZE_STRING) ?></span>
+    <?php endif; ?>
+</div>
+
+<script type="text/javascript">
+    require(['jquery'], function ($) {
+        $('.order-shipping-method').append($('.ks-deliverydate-info'));
+    });
+</script>

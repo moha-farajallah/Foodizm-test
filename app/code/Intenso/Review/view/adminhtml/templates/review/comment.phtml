@@ -1,0 +1,190 @@
+<?php
+/**
+ * Copyright © Intenso Commerce. All rights reserved.
+ * See License.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php $comment = $block->getReviewComment(); ?>
+<?php $buttonLabel = $comment->getId() ? __('Edit Comment') : __('Add Comment') ?>
+<div class="intenso-comment-bubble intenso-arrow-box store-owner-comment<?php if (!$comment->getId()): ?> hidden<?php endif; ?>">
+    <div class="author">
+        <?= __('By')?> <span><?php echo $block->escapeHtml($block->getStoreOwnerDisplayName()); ?></span>
+        <?= __('on')?> <time datetime="<?php echo date('c', strtotime($comment->getCreatedAt())); ?>" itemprop="datePublished">
+            <?= $block->formatDate($comment->getCreatedAt(), \IntlDateFormatter::LONG); ?></time>
+        <span class="intenso-comment-type intenso-comment-type-private<?php if (!$comment->getType()): ?> hidden<?php endif; ?>">
+            <?= __('Private'); ?>
+        </span>
+        <span class="intenso-comment-type intenso-comment-type-public<?php if ($comment->getType()): ?> hidden<?php endif; ?>">
+            <?= __('Public'); ?>
+        </span>
+    </div>
+    <div class="comment-text">
+        <?= $block->escapeHtml($comment->getText())?>
+    </div>
+</div>
+<button type="button" id="intenso-comment-btn" title="<?= $buttonLabel ?>" class="action-secondary">
+    <span data-role="button-label" data-edit-label="<?= /* @escapeNotVerified */  $buttonLabel ?>">
+        <?= /* @escapeNotVerified */  $buttonLabel; ?>
+    </span>
+</button>
+<div id="intenso-comment-modal" class="hidden">
+    <fieldset class="admin__fieldset">
+        <div class="intenso-error-msg hidden"></div>
+        <div class="admin__field _required">
+            <label class="admin__field-label" for="comment_text">
+                <span><?= /* @escapeNotVerified */ __('Comment') ?></span>
+            </label>
+            <div class="admin__field-control">
+                <textarea name="comment_text" id="comment_text" data-validate="{required:true}"
+                     style="height: 16em; width: 100%" rows="2" cols="15"><?= $block->escapeHtml($comment->getText())?></textarea>
+            </div>
+        </div>
+        <div class="admin__field">
+            <label class="admin__field-label" for="comment_type"></label>
+            <div class="admin__field-control">
+            <input type="radio"
+                   name="comment_type"
+                   <?php if (!$comment->getType()): ?>checked<?php endif; ?>
+                   id="comment_type"
+                   class="admin__control-radio"
+                   value="0" />
+            <label for="comment_type" class="admin__field-label" style="margin-right: 30px;">
+                <span><?= /* @escapeNotVerified */ __('Public') ?></span>
+            </label>
+            <input type="radio"
+                   name="comment_type"
+                   <?php if ($comment->getType()): ?>checked<?php endif; ?>
+                   id="comment_type2"
+                   class="admin__control-radio"
+                   value="1" />
+            <label for="comment_type2" class="admin__field-label">
+                <span><?= /* @escapeNotVerified */ __('Private') ?></span>
+            </label>
+            </div>
+        </div>
+    </fieldset>
+</div>
+<script>
+    require([
+        'jquery',
+        'Magento_Ui/js/modal/modal'
+    ], function($) {
+        $(function () {
+            var $modal = $('#intenso-comment-modal');
+
+            $('#intenso-comment-btn').on('click', function(e) {
+                e.preventDefault();
+                $(this).blur();
+                $modal.modal('openModal');
+            });
+
+            $modal.modal({
+                type: 'slide',
+                modalClass: 'intenso-modal',
+                autoOpen: false,
+                responsive: true,
+                innerScroll: true,
+                clickableOverlay: true,
+                title: '<?php echo __('Comment'); ?>',
+                buttons: [{
+                    text: '<?php echo __('Save'); ?>',
+                    class: 'action-primary action-accept',
+                    click: function () {
+                        var self = this,
+                            url = '<?php /* @escapeNotVerified */ echo $block->getAction() ?>',
+                            data = {
+                                review_id: '<?= $block->getReviewId(); ?>',
+                                text: $('#comment_text').val(),
+                                type: $('input[name=comment_type]:checked').val(),
+                                form_key: '<?= $block->getFormKey(); ?>'
+                            };
+                        $.ajax({
+                            url: url,
+                            data: data,
+                            type: 'post',
+                            success: function (responseContent) {
+                                if (responseContent.success) {
+                                    $('.intenso-comment-bubble').removeClass('hidden');
+                                    $('.comment-text').html(data.text);
+                                    $('#intenso-comment-btn').find('span').html('<?= __('Edit Comment'); ?>');
+                                    if (data.type === '1') {
+                                        $('.intenso-comment-type-public').addClass('hidden');
+                                        $('.intenso-comment-type-private').removeClass('hidden');
+                                    } else {
+                                        $('.intenso-comment-type-private').addClass('hidden');
+                                        $('.intenso-comment-type-public').removeClass('hidden');
+                                    }
+                                    self.closeModal();
+                                } else {
+                                    $('.intenso-error-msg')
+                                        .html('<?= __('Sorry, something went wrong. Please try again later.'); ?>')
+                                        .removeClass('hidden');
+                                }
+                            },
+                            error: function (jqXHR, status, error) {
+                                $('.intenso-error-msg')
+                                    .html(status + ': ' + error + '\nResponse text:\n' + jqXHR.responseText)
+                                    .removeClass('hidden');
+                            }
+                        });
+                    }
+                }, {
+                    text: '<?php echo __('Delete Comment'); ?>',
+                    class: 'intenso-delete-button',
+                    click: function () {
+                        var self = this,
+                            url = '<?php /* @escapeNotVerified */ echo $block->getAction() ?>',
+                            data = {
+                                review_id: '<?= $block->getReviewId(); ?>',
+                                remove: true,
+                                form_key: '<?= $block->getFormKey(); ?>'
+                            };
+
+                        if (!confirm('<?= __('Are you sure?'); ?>')) {
+                            return;
+                        }
+                        $.ajax({
+                            url: url,
+                            data: data,
+                            type: 'post',
+                            success: function (responseContent) {
+                                if (responseContent.success) {
+                                    $('.intenso-comment-bubble').addClass('hidden');
+                                    $('.comment-text').html();
+                                    $('#intenso-comment-btn').find('span').html('<?= __('Add Comment'); ?>');
+                                    $('.intenso-comment-type-public').addClass('hidden');
+                                    $('.intenso-comment-type-private').addClass('hidden');
+                                    $('.intenso-error-msg').html('').addClass('hidden');
+                                    self.closeModal();
+                                } else {
+                                    $('.intenso-error-msg')
+                                        .html('<?= __('Sorry, something went wrong. Please try again later.'); ?>')
+                                        .removeClass('hidden');
+                                }
+                            },
+                            error: function (jqXHR, status, error) {
+                                $('.intenso-error-msg')
+                                    .html(status + ': ' + error + '\nResponse text:\n' + jqXHR.responseText)
+                                    .removeClass('hidden');
+                            }
+                        });
+                    }
+                }, {
+                    text: '<?php echo __('Close'); ?>',
+                    class: 'intenso-close-button',
+                    click: function () {
+                        this.closeModal();
+                    }
+                }],
+                opened: function() {
+                    $('#comment_text').focus();
+                }
+            });
+
+            $modal.removeClass('hidden');
+        });
+    });
+</script>

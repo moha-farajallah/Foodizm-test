@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<include xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_include.xsd">
+    <group id="veritegmo_ccmulti" type="text" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="1" translate="label comment">
+        <label>Credit Card Multi Currency</label>
+        <fieldset_css>veritegmo-method-ccmulti</fieldset_css>
+        <attribute type="activity_path">payment/veritegmo_ccmulti/active</attribute>
+        <field id="title" translate="label" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Title</label>
+            <config_path>payment/veritegmo_ccmulti/title</config_path>
+        </field>
+        <field id="active" type="select" translate="label" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Enabled</label>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            <config_path>payment/veritegmo_ccmulti/active</config_path>
+        </field>
+        <field id="payment_action" type="select" translate="label" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Auth Type</label>
+            <source_model>Veriteworks\Gmo\Model\Source\PaymentAction</source_model>
+            <config_path>payment/veritegmo_ccmulti/payment_action</config_path>
+        </field>
+<!--        <field id="use_token" type="select" translate="label" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">-->
+<!--            <label>Use Token Payment</label>-->
+<!--            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>-->
+<!--            <config_path>payment/veritegmo_ccmulti/use_token</config_path>-->
+<!--        </field>-->
+        <field id="tenant_name" type="text" translate="label" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Tenant Name</label>
+            <config_path>payment/veritegmo_ccmulti/tenant_name</config_path>
+        </field>
+        <field id="currency" type="multiselect" translate="label" sortOrder="7" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Available Currency</label>
+            <source_model>Veriteworks\Gmo\Model\Source\Currency</source_model>
+            <config_path>payment/veritegmo_ccmulti/currency</config_path>
+        </field>
+        <field id="use_holder_name" type="select" translate="label" sortOrder="13" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Use Holder Name</label>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            <config_path>payment/veritegmo_ccmulti/use_holder_name</config_path>
+        </field>
+        <field id="min_order_total" translate="label" sortOrder="99" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Minimum Order Total</label>
+            <config_path>payment/veritegmo_ccmulti/min_order_total</config_path>
+        </field>
+        <field id="max_order_total" translate="label" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Maximum Order Total</label>
+            <config_path>payment/veritegmo_ccmulti/max_order_total</config_path>
+        </field>
+        <field id="sort_order" translate="label" type="text" sortOrder="230" showInDefault="1" showInWebsite="1" showInStore="0">
+            <label>Sort Order</label>
+            <frontend_class>validate-number</frontend_class>
+            <config_path>payment/veritegmo_ccmulti/sort_order</config_path>
+        </field>
+        <field id="debug" type="select" translate="label" sortOrder="999" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Debug</label>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            <config_path>payment/veritegmo_ccmulti/debug</config_path>
+        </field>
+    </group>
+</include>

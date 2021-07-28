@@ -1,0 +1,33 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<?php /** @var  $block \Magento\Sales\Block\Order\View*/?>
+<?php
+	$_order = $block->getOrder();
+	$_billingaddress = $_order->getBillingAddress();
+	$_customerEmail = $_order->getCustomerEmail();
+	$_payment = $_order->getPayment();
+    $_method = $_payment->getMethodInstance();
+    $_methodTitle = $_method->getTitle();
+
+	switch ($_billingaddress->getData("country_id")) {
+		case 'JP':
+			$_country = '日本';
+			break;
+		case null:
+			$_country = $_billingaddress->getData("country_id");
+			break;
+	}
+
+
+$billinginfo = "郵便番号：" . $_billingaddress->getData("postcode") . "\r\n" .
+"住所：" . $_billingaddress->getData("region") . $_billingaddress->getData("city") . $_billingaddress->getData("street") . "\r\n" .
+"電話番号：" . $_billingaddress->getData("telephone") . "\r\n" .
+"Ｅメールアドレス：" . $_customerEmail . "\r\n" .
+"■支払方法" . "\r\n" .
+"支払方法：" . $_methodTitle; 
+?>
+<?= $billinginfo ?>

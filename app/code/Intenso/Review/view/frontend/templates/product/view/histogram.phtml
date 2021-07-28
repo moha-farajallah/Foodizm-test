@@ -1,0 +1,48 @@
+<?php
+/**
+ * Copyright © Intenso Commerce. All rights reserved.
+ * See License.txt for license details.
+ */
+?>
+<?php
+$helper = $this->helper(\Intenso\Review\Helper\Data::class);
+list($rating, $meter, $percentage) = $block->getProductStat($block->getProduct()->getId());
+?>
+<?php if ($block->getReviewsCount()): ?>
+    <div class="intenso-rating-box">
+        <div class="rating-summary">
+            <div class="rating-avg"><span><?php echo $rating; ?></span></div>
+            <div class="rating-result">
+                <?php if ($block->getRatingSummary()):?>
+                <span style="width:<?php echo $block->getRatingSummary() ?>%"></span>
+                <?php endif;?>
+                <div class="review-stats">
+                    <span class="reviewer-icon"></span>
+                    <?php if ($block->getReviewsCount() > 1): ?>
+                        <span class="reviews-total"><?php echo $block->getReviewsCount(); ?> <?php echo __('reviews') ?></span>
+                    <?php else: ?>
+                        <span class="review-total"><?php echo $block->getReviewsCount(); ?> <?php echo __('review') ?></span>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
+        <div class="intenso-rating-histogram">
+        <?php for ($i=5; $i >= 1; $i--): ?>
+            <div class="intenso-rating-bar-container container-<?php echo $i; ?>">
+                <?php if ($percentage[$i] > 0): ?>
+                    <a class="rating-label" href="<?php echo $block->getReviewsUrl(true) . $helper->getFilterQuerystring($i); ?>" title="<?php echo __('Click to see all %1 star reviews', $i);?>"><span class="star-tiny"></span><?php echo $i; ?></a>
+                <?php else: ?>
+                    <span class="rating-label"><span class="star-tiny"></span><?php echo $i; ?></span>
+                <?php endif; ?>
+                <a class="meter-bar" style="width: <?php echo $meter[$i]; ?>%" href="<?php echo $block->getReviewsUrl(true) ?><?php echo $helper->getFilterQuerystring($i); ?>" title="<?php echo __('Click to see all %1 star reviews', $i);?>">
+                    <span class="hidden"><?php echo __('Click to see all %1 star reviews', $i);?></span>
+                    <span class="rating-percentage"><?= ($percentage[$i] > 0) ? $percentage[$i] . '%' : ''; ?></span>
+                </a>
+            </div>
+        <?php endfor; ?>
+        </div>
+        <a href="#" class="intenso-add-your-review-link"><?php echo __('Add Your Review') ?></a>
+    </div>
+<?php else: ?>
+    <p class="no-rating"><a href="<?php echo $block->getReviewsUrl() ?>#post-review"><?php echo __('Be the first to review this product') ?></a></p>
+<?php endif; ?>

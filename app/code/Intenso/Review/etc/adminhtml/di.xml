@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Intenso Commerce. All rights reserved.
+ * See License.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- overwrite method _prepareCollection() and constructor to add anti-spam features -->
+    <preference for="Magento\Review\Block\Adminhtml\Grid" type="Intenso\Review\Block\Adminhtml\Review\Grid" />
+
+    <!-- overwrite method _prepareForm() and constructor to add anti-spam features -->
+    <preference for="Magento\Review\Block\Adminhtml\Edit\Form" type="Intenso\Review\Block\Adminhtml\Review\Edit\Form" />
+    
+    <!-- plugin to delete reviews images after the review is deleted -->
+    <type name="Magento\Review\Controller\Adminhtml\Product\Delete">
+      <plugin name="IntensoReviewDeleteImages" type="\Intenso\Review\Controller\Adminhtml\Review\Plugin\Delete" sortOrder="1" />
+    </type>
+</config>

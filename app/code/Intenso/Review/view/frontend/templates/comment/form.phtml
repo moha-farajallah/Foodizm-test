@@ -1,0 +1,71 @@
+<?php
+/**
+ * Copyright © Intenso Commerce. All rights reserved.
+ * See License.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php $helper = $this->helper(\Intenso\Review\Helper\Data::class); ?>
+<div class="form-add intenso-arrow-box intenso-add-comment-form comment-form-template" data-bind="scope: 'customer'">
+    <div class="title"><?= __('Post a comment'); ?></div>
+    <!-- ko if: customer().fullname  -->
+    <?php /* @escapeNotVerified */ echo __('as'); ?> <strong data-bind="text: new String(customer().firstname)"></strong>
+    <!-- /ko -->
+    <?php if ($block->getAllowWriteReviewFlag()): ?>
+        <form
+            action="<?= $block->getAction() ?>"
+            method="post"
+            id="review_comment_form"
+            class="review-comment-form"
+            data-hasrequired="<?php /* @escapeNotVerified */ echo __('* Required Fields') ?>">
+            <?= $block->getBlockHtml('formkey'); ?>
+            <fieldset class="fieldset review-fieldset">
+                <?php if (!$helper->isLoggedIn()): ?>
+                <div class="field nickname required">
+                    <label for="nickname" class="label"><span><?php /* @escapeNotVerified */ echo __('Nickname') ?></span></label>
+                    <div class="control">
+                        <input type="text" name="nickname" id="nickname" class="input-text" data-validate="{required:true}">
+                    </div>
+                </div>
+                <?php endif; ?>
+                <div class="field comment required">
+                    <label for="comment" class="label"><span><?php /* @escapeNotVerified */ echo __('Comment') ?></span></label>
+                    <div class="control">
+                        <textarea name="comment" id="comment" cols="5" rows="3" data-validate="{required:true}"></textarea>
+                    </div>
+                </div>
+                <?php if (!$helper->isLoggedIn()): ?>
+                <div class="field email required">
+                    <label for="comment-email" class="label"><span><?php /* @escapeNotVerified */ echo __('Email') ?></span></label>
+                    <div class="control">
+                        <input type="email" name="email" id="comment-email" class="input-text" data-validate="{required:true, 'validate-email':true}">
+                    </div>
+                </div>
+                <?php endif; ?>
+            </fieldset>
+            <div class="actions-toolbar comment-form-actions">
+                <div class="primary actions-primary">
+                    <input type="hidden" name="hideit" id="hideit" value="">
+                    <button type="submit"
+                        title="<?= __('Submit Comment') ?>"
+                        class="action submit submit-comment primary"
+                        data-review-id="0"
+                        data-btn-txt="<?= __('Submit Comment') ?>"
+                        data-btn-sending="<?= __('Sending...') ?>">
+                        <span><?= __('Submit Comment') ?></span>
+                    </button>
+                    <a class="cancel-comment" href="#"><?= __('Cancel') ?></a>
+                </div>
+            </div>
+            <div class="intenso-msg-wrapper"></div>
+        </form>
+    <?php else: ?>
+        <div class="message info notlogged" id="comment-form">
+            <div>
+                <?php /* @escapeNotVerified */ echo __('Only registered users can write comments. Please, <a href="%1">Sign in</a> or <a href="%2">create an account</a>', $block->getLoginLink(), $block->getRegisterUrl()) ?>
+            </div>
+        </div>
+    <?php endif ?>
+</div>

@@ -1,0 +1,258 @@
+﻿Previous,戻る
+Save and Previous,保存と戻る
+Save and Next,保存して次へ
+Next,次へ
+Save Comment,コメントの保存
+Delete Comment,コメントの削除
+Edit Comment '%1',コメントの編集 '%1'
+Comment Details,コメントの詳細
+Review,レビュー
+Product,商品
+"<a href=""%1"" onclick=""this.target='blank'"">%2 %3</a> <a href=""mailto:%4"">(%4)</a>","<a href=""%1"" onclick=""this.target='blank'"">%2 %3</a> <a href=""mailto:%4"">(%4)</a>"
+"%1 <a href=""mailto:%2"">(%2)</a>","%1 <a href=""mailto:%2"">(%2)</a>"
+Author,作成者
+Please confirm to mark this comment as Not Spam,このコメントがスパムではないことを確認してください
+Spam,スパム
+Not Spam?,スパムではない？
+Status,状態
+Nickname,ニックネーム
+Comment,コメント
+ID,ID
+Created,作成しました
+Review Title,レビュータイトル
+Type,タイプ
+Action,アクション
+Edit,編集
+Delete,削除
+Are you sure?,よろしいですか。
+Update Status,ステータスの更新
+Customer,お客様
+Guest,ゲスト
+Review Details,レビュー詳細
+Administrator,管理者
+Summary Rating,概要評価
+Detailed Rating,詳細評価
+Please confirm to mark this review as Not Spam,このレビューがスパムではないことを確認してください。
+Visibility,表示
+Summary of Review,レビューの概要
+Title,タイトル
+SKU,SKU
+Knowledge Base,知識ベース
+This feature is not available in the Lite package.,この機能はLiteパッケージでは利用できません。
+Upgrade to Pro,Proへのアップグレード
+Most helpful first,最も役立つものから
+Most recent first,最新のものから
+All stars,すべての星
+One star,1つ星
+Two stars,2つ星
+Three stars,3つ星
+Four stars,4つ星
+Five stars,5つ星
+All reviewers,全てのレビュアー
+Verified purchase only,検証購入のみ
+The comment has been deleted.,このコメントは削除されました。
+Something went wrong while deleting this comment.,このコメントを削除する際に何か問題が発生したようです。
+Edit Comment,コメントの編集
+"The comment has been marked as ""Not Spam"" and published.","このコメントは ""スパムではない ""と判断され、公開されました。"
+Something went wrong while updating this comment.,このコメントの更新時に何か問題が発生しました。
+Comments on Reviews,レビューのコメント
+Please select comment(s).,コメントを選択してください。
+A total of %1 record(s) have been deleted.,合計 %1 レコードが削除されました。
+Something went wrong while deleting these comment(s).,このコメントの削除時に何か問題が発生しました。
+A total of %1 record(s) have been updated.,合計 %1 件のコメントが更新されました。
+Something went wrong while updating these comment(s).,このコメントの更新時に何か問題が発生しました。
+The comment was removed by another user or does not exist.,このコメントは他のユーザーによって削除されたか、存在しません。
+You saved the comment.,コメントを保存しました。
+"The review has been marked as ""Not Spam"" and published.",このレビューは「非スパム」としてマークされ、公開されました。
+Something went wrong while updating this review.,このレビューの更新中に何か問題が発生しました。
+Please select review(s).,レビューを選択してください。
+Something went wrong while updating these review(s).,これらのレビューの更新中に何か問題が発生しました。
+The review was removed by another user or does not exist.,このレビューは他のユーザーによって削除されたか、存在しません。
+You saved the review.,レビューを保存しました。
+Something went wrong while saving this review.,このレビューの保存中に何か問題が発生しました。
+The test email has been sent,テストメールが送信されました。
+Unable to post the comment.,コメントの投稿ができませんでした。
+Thank you. Your comment has been submitted and is waiting for approval.,ありがとうございます。コメントが投稿され、承認を待っています。
+Thank you. Your comment has been published.,ありがとうございます。コメントは公開されました。
+Something went wrong while saving your review.,レビューを保存中に何か問題が発生しました。
+Invalid session. Please reload the page and try again.,セッションが無効です。ページを再読み込みして再度お試しください。
+Thank you! You submitted your review for moderation.,ありがとうございました。レビューを送信して審査を受けました。
+Thank you! Your review has been published.,ありがとうございます。レビューが公開されました。
+We can't post your review right now.,現在、レビューを投稿できません。
+Error during Akismet API Key verification.,Akismet API Keyの検証中にエラーが発生しました。
+The API Key is valid.,APIキーは有効です。
+Please enter a valid API Key.,有効なAPIキーを入力してください。
+Approved,承認済み
+Pending,保留
+Not Approved,未承認
+Please enter a nickname.,ニックネームを入力してください。
+Please enter a comment.,コメントを入力してください。
+Please enter your email.,Eメールを入力してください。
+Most Expensive,最も高い
+Least Reviewed,レビュー数が少ない
+Please enter the email address,Eメールアドレスを入力してください
+Please enter a valid email address,有効なEメールアドレスを入力してください
+Error while sending the test email.,テストメールの送信時にエラーが発生しました。
+Loading...,読み込み中...
+Version %1,バージョン %1
+%1 out of 5 stars,5 つ星のうちの %1
+Click to see all %1 star reviews,クリックしてすべての %1 星のレビューを見る
+See all %1 reviews,すべての %1 レビューを見る
+Be the first to review this product,この商品を初めてレビューする人
+Post a comment,コメントを投稿する
+as,として
+* Required Fields,* 必須項目
+Email,Eメール
+Submit Comment,コメントの送信
+Sending...,送る...
+Cancel,キャンセル
+"Only registered users can write comments. Please, <a href=""%1"">Sign in</a> or <a href=""%2"">create an account</a>","コメントを書くことができるのは、登録ユーザーのみです。<a href=""%1"">サインイン</a>または<a href=""%2"">アカウントの作成</a>をお願いします。"
+By,by
+on,で
+Hide comments,コメントを隠す
+Submit Review,レビューを投稿する
+Close,閉じる
+Try Again,もう一度試す
+You're reviewing:,レビューしています。
+Your Rating,評価
+%1 %2,%1 %2
+Summary,概要
+"Only registered users can write reviews. Please, <a href=""%1"">Sign in</a> or <a href=""%2"">create an account</a>","レビューを書くことができるのは、登録ユーザーのみです。<a href=""%1"">サインイン</a>または<a href=""%2"">アカウントの作成</a>をお願いします。"
+Rating,評価
+Reviews,レビュー
+Add Your Review,レビューを追加
+Items %1 to %2 of %3 total,アイテム %1 から %2 の合計 %3
+%1 Item,%1 アイテム
+%1 Item(s),%1 アイテム
+Page,ページ
+You're currently reading page,現在読んでいるページ
+Show,表示する
+per page,ページごと
+Ratings & reviews for,の評価とレビュー
+Write a customer review,カスタマーレビューを書く
+Thank you for posting a review!,レビューを投稿していただき、ありがとうございます。
+We and all shoppers on %1 appreciate the time you took to share your experience with this item.,私たちも、%1のすべての客様も、この商品のレビューを共有するために時間を割いていただいたことに感謝しています。
+%1 person found the following review helpful,このレビューが%1人を役に立ました。
+%1 people found the following review helpful,このレビューが%1人を役に立ました。
+Verified Purchase,購入を確認
+%1 Comment,%1 コメント
+%1 Comments,%1 コメント
+Was this review helpful to you?,このレビューは役に立ちましたか？
+Yes,はい。
+No,いいえ
+Thank you for your feedback!,感想をお寄せいただきありがとうございました。
+You already voted,すでに投票しました
+"Sorry, we failed to record your vote. Please try again",申し訳ありませんが、投票を記録することができませんでした。もう一度お試しください。
+"Sorry, no reviews match your current selections",現在の選択項目に一致するレビューがありません。
+Try clearing or changing some filters.,フィルターを解除または変更してみてください。
+Show all reviews,すべてのレビューを表示
+Rated %1 stars out of five stars,5つ星のうち%1 星の評価
+reviews,レビュー
+review,レビュー
+Customer Reviews,カスタマーレビュー
+Most Helpful Customer Reviews,最も参考になったカスタマーレビュー
+There are no reviews yet,まだレビューされてません。
+Back to Product Info,商品情報に戻る
+Please review your recent purchase at %store_name,%store_nameで最近購入された商品のレビューをお願いします
+"Hello %customer_name,",こんにちは、%customer_nameです。
+You've recently bought,最近購入された商品は
+what do you think about it?,感想はいかがでしょうか？
+Click below to rate (1-5):,以下をクリックして、評価（1～5）をお願いします。
+Rate:,評価する
+Review Title:,レビュータイトル
+Review:,レビュー
+Submit Your Review,レビューの投稿
+We really appreciate your feedback and hope to see you again soon.,私たちはフィードバックに本当に感謝しています。
+Thank you from,ありがとうございました。
+"Too soon? If you have not received the product yet, please",早すぎましたか？まだ商品が届いていないという方は
+contact us,ご連絡ください。
+New comment at %store_name,%store_nameでの新しいコメント
+A new comment for one of the reviews of %product_name has been received.,product_nameのレビューの1つに新しいコメントが寄せられました。
+Comment from,からのコメント
+The status of this comment is: %status,このコメントのステータスは: %status
+Manage comment,コメントの管理
+New review at %store_name,%store_nameでの新しいレビュー
+A new review for %product_name has been received.,%product_nameの新しいレビューが届きました。
+Review from,からのレビュー
+The status of this review is: %status,このレビューのステータスは: %status
+Manage review,レビューの管理
+You got a new comment for your review at %store_name,%store_nameでのレビューに新しいコメントされました。
+Someone has commented on the review you wrote for %product_name.,書いた %product_name のレビューにコメントされました
+You can check the comment and reply here: %url,コメントを確認して、ここで返信することができます。%url
+Thank you for reviewing %product_name,%product_nameにレビューを書いていただきありがとうございます。
+on %store_name,%store_nameでの
+"Thanks %nickname,",ありがとう、%nickname。
+Your latest customer review is live on  %store_name. We and all shoppers on %store_name appreciate the time you took to share your experience with this item.,最新のカスタマーレビューは、%store_nameで公開されています。この商品についてのレビューをお寄せいただいたことに、私たちや%store_nameのすべてのお客様が感謝しています。
+Write Your Own Review,自分のレビューを書く
+Read more,もっと読む
+Intenso Reviews,Intensoレビュー
+Configuration,構成
+About,について
+Version,バージョン
+Documentation,ドキュメント
+General,一般
+Moderate Reviews Submitted by Guest Users,ゲストユーザーレビューの確認
+Moderate Reviews Submitted by Customers,お客様レビューの確認
+Moderate Comments Submitted by Guest Users,ゲストユーザーコメントの確認
+Moderate Comments Submitted by Customers,お客様コメントの確認
+Number of Reviews in Product Page,商品ページに掲載されているレビュー数
+Please enter a number 1 or greater in this field.,この欄には1以上の数字を入力してください。
+Number of Words for Preview,プレビューの文字数
+"Limit the number of words to display before the ""Read more"" link. Enter 0 for unlimited.",「続きを読む」リンクの前に表示する文字数を制限することができます。無制限の場合は0を入力してください。
+Display Rating Summary Popover on Hover,ホバーに評価サマリーのポップオーバーを表示
+"If enabled, a small popover box displays the rating and reviews summary for each product on catalog pages",有効にすると、カタログページで各商品の評価とレビューの概要を小さなポップオーバーボックスに表示します。
+Spam Protection,迷惑メール対策
+Enable Spam Protection,迷惑メール対策を有効にする
+"If enabled, all reviews and comments are filtered by the Akismet anti-spam filter",有効にすると、すべてのレビューとコメントがAkismetスパム対策フィルターによってフィルタリングされます。
+Akismet API Key,Akismet API キー
+"Sign up at <a href=""https://akismet.com/"" target=""_blank"">https://akismet.com/</a> to get your API key","<a href=""https://akismet.com/"" target=""_blank"">https://akismet.com/</a>からサインアップして、APIキーを取得してください。"
+Validate API Key,APIキーの検証
+Store Owner Notifications,ストアオーナーへの通知
+Send Emails To,メールの送信先
+Email Sender,メール送信者
+New Review Notification,新規レビュー通知
+"If enabled, an email is sent to the store owner when a new review is posted",有効にすると、新しいレビューが投稿されたときにストアオーナーにメールが送信されます。
+New Review Notification Template,新しいレビューの通知テンプレート
+New Comment Notification,新規コメント通知
+"If enabled, an email is sent to the store owner when a new comment is posted",有効にすると、新しいコメントが投稿されたときにストアオーナーにEメールが送信されます。
+New Comment Notification Template,新着コメント通知テンプレート
+Customer Notifications,お客様への通知
+Enable Review Published Notification,レビュー公開通知の有効化
+"If enabled, an email is sent to the reviewer when the review has been published.",有効にすると、レビューが公開されたときにレビュー担当者にメールが送信されます。
+Review Published Template,レビュー公開テンプレート
+Enable Review Comment Notification,レビューのコメント通知を有効にする
+"If enabled, an email is sent to the reviewer when another user leaves a comment on his/her review.",有効にすると、他のユーザーがレビューにコメントを残したときに、レビュー担当者に電子メールが送信されます。
+Review Comment Template,レビューコメントテンプレート
+Mail After Purchase,購入後のメール
+Enable Mail After Purchase,購入後のメール送信を有効にする
+"If enabled, an email is automatically sent to your customers a certain number of days after they have made their purchases.",有効にすると、お客様が購入してから一定の日数が経過したときに、自動的にメールが送信されます。
+Mail After Purchase Threshold,購入後メール送信のしきい値
+This is the number of days the system will wait until sending the Mail After Purchase. 14 days is the recommended threshold.,これは、購入後メールを送信するまでのシステムの待機日数です。14日が推奨されています。
+Max Number of Emails,メールの最大送信数
+Set the maximum number of emails sent for orders with multiple products.,複数の商品を購入した場合に送信するメールの最大数を設定します。
+Mail Interval,メール送信間隔
+Set the number of days between the sending of each subsequent email for orders with multiple products.,複数の商品を購入した場合の、購入後メールの送信間隔を設定します。
+Sort Order,ソート順
+"Choose to request a review for the most expensive product first, or the product with the least reviews, in orders with multiple products. The 2nd email request will be for the second most expensive product and so on.",複数の商品を注文した場合に、最も価格の高い商品からレビューを依頼するか、最もレビュー数の少ない商品から依頼するかを選択します。2回目のメールリクエストは、2番目に価格の高い商品というようになります。
+Mail After Purchase Template,購入後メールテンプレート
+Send Test,テスト送信
+Verified Purchase Badge,購入確認済みバッジ
+Enable Verified Purchase Badge,購入確認済みバッジの有効化
+"If enabled, a ""Verified Purchase"" badge is displayed on the review when the customer has bought the product on your store.",有効にすると、お客様がストアで商品を購入した際に、レビューに「購入確認済み」バッジが表示されます。
+Please write a review,レビューを書いてください
+"If enabled, the total number of reviews for a product is displayed next to the rating stars on catalog pages",有効にすると、商品に対するレビューの総数がカタログページの評価スターの横に表示されます。
+Add Photos,写真の追加
+Customer Photos,お客様の写真
+This review doesn't include photos,このレビューには写真が含まれていません
+"If enabled, customers will be able to upload up to 5 photos alongside their reviews",有効にすると、お客様はレビューと一緒に最大5枚の写真をアップロードすることができます。
+Store Owner Comment,店主コメント
+Public,公開
+Private,プライベート
+"%store_name received your review on ""%product_name"" and replied:",%store_nameが「%product_name」のレビューを受け取り、返信しました。
+"Thanks again for the review, and we hope to see you again soon!",レビューをいただきありがとうございました。
+Store Owner Comments,店主コメント
+Name,名前
+Choose the name that will be displayed next to your public comments (e.g. your store name),公開コメントの横に表示される名前を選択してください（例：ストア名）。
+Display Your Comments in Expanded Mode,コメントを拡大して表示
+"If enabled, your comments will be visible below the review without clicking the ""Comments"" link.",有効にすると、「コメント」リンクをクリックしなくても、コメントがレビューの下に表示されます。
+Store Owner Comment Email Template,ストアオーナーコメントメールテンプレート

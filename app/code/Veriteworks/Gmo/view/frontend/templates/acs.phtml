@@ -1,0 +1,24 @@
+<?php
+$data = $block->getAcsData();
+?>
+<html>
+    <head>
+    </head>
+    <body>
+        <form name="ACSCall" action="<?= /** @noEscape */$block->getDestUrl();?>" method="POST"> <noscript>
+                <center>
+                    <h2>
+                        3-D セキュア認証を続けます。<br> ボタンをクリックしてください。
+                    </h2>
+                    <input type="submit" value="OK"> </center>
+            </noscript>
+            <input type="hidden" name="PaReq" value="<?= /** @noEscape */$data->getPareq();?>" />
+            <input type="hidden" name="TermUrl" value="<?= /** @noEscape */$data->getTermUrl();?>" />
+            <input type="hidden" name="MD" value="<?= /** @noEscape */$data->getMd();?>" />
+        </form>
+        <script >
+            <!--
+            document.ACSCall.submit(); //-->
+        </script>
+    </body>
+</html>

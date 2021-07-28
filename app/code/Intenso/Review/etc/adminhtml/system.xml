@@ -1,0 +1,254 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Intenso Commerce. All rights reserved.
+ * See License.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="intenso" translate="label" sortOrder="400">
+            <label>Intenso</label>
+        </tab>
+        <section id="intenso_review" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Advanced Reviews</label>
+            <tab>intenso</tab>
+            <resource>Intenso_Review::review</resource>
+            <group id="config_header" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <frontend_model>Intenso\Review\Block\Adminhtml\System\Config\ModuleConfigHeader</frontend_model>
+            </group>
+            <group id="about" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>About</label>
+                <field id="module_name" translate="label" type="label" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Product</label>
+                    <frontend_model>Intenso\Review\Block\Adminhtml\Review\System\Config\Modulename</frontend_model>
+                </field>
+                <field id="version" translate="label" type="label" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Version</label>
+                    <frontend_model>Intenso\Review\Block\Adminhtml\Review\System\Config\Version</frontend_model>
+                </field>
+                <field id="kb_url" translate="label" type="label" sortOrder="3" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Documentation</label>
+                    <frontend_model>Intenso\Review\Block\Adminhtml\Review\System\Config\Docs</frontend_model>
+                </field>
+            </group>
+            <group id="configuration" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="moderate_guest_review" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Moderate Reviews Submitted by Guest Users</label>
+                    <frontend_model>Intenso\Review\Block\Adminhtml\System\Config\Switcher</frontend_model>
+                </field>
+                <field id="moderate_customer_review" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Moderate Reviews Submitted by Customers</label>
+                    <frontend_model>Intenso\Review\Block\Adminhtml\System\Config\Switcher</frontend_model>
+                </field>
+                <field id="moderate_guest_comment" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Moderate Comments Submitted by Guest Users</label>
+                    <frontend_model>Intenso\Review\Block\Adminhtml\System\Config\Switcher</frontend_model>
+                </field>
+                <field id="moderate_customer_comment" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Moderate Comments Submitted by Customers</label>
+                    <frontend_model>Intenso\Review\Block\Adminhtml\System\Config\Switcher</frontend_model>
+                </field>
+                <field id="product_page_review_limit" translate="label comment" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Number of Reviews in Product Page</label>
+                    <comment>Please enter a number 1 or greater in this field.</comment>
+                    <validate>validate-number validate-greater-than-zero</validate>
+                </field>
+                <field id="max_words_preview" translate="label comment" type="text" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Number of Words for Preview</label>
+                    <comment>Limit the number of words to display before the "Read more" link. Enter 0 for unlimited.</comment>
+                    <validate>validate-number</validate>
+                </field>
+                <field id="summary_popover" translate="label comment" type="text" sortOrder="7" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Display Rating Summary Popover on Hover</label>
+                    <comment>If enabled, a small popover box displays the rating and reviews summary for each product on catalog pages</comment>
+                    <frontend_model>Intenso\Review\Block\Adminhtml\System\Config\Switcher</frontend_model>
+                </field>
+                <field id="review_count" translate="label comment" type="text" sortOrder="8" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Display Review Count on Catalog Page</label>
+                    <comment>If enabled, the total number of reviews for a product is displayed next to the rating stars on catalog pages</comment>
+                    <frontend_model>Intenso\Review\Block\Adminhtml\System\Config\Switcher</frontend_model>
+                </field>
+                <field id="user_generated_photos" translate="label comment" type="text" sortOrder="9" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable User-Generated Photos</label>
+                    <comment>If enabled, customers will be able to upload up to 5 photos alongside their reviews</comment>
+                    <frontend_model>Intenso\Review\Block\Adminhtml\System\Config\Switcher</frontend_model>
+                </field>
+            </group>
+            <group id="akismet" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="0">
+                <label>Spam Protection</label>
+                <field id="enable" translate="label comment" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Enable Spam Protection</label>
+                    <comment>If enabled, all reviews and comments are filtered by the Akismet anti-spam filter</comment>
+                    <frontend_model>Intenso\Review\Block\Adminhtml\System\Config\Switcher</frontend_model>
+                </field>
+                <field id="api_key" translate="label comment" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Akismet API Key</label>
+                    <tooltip>Click the Validate button below to be sure the API key is correct.</tooltip>
+                    <comment><![CDATA[Sign up at <a href="https://akismet.com/" target="_blank">https://akismet.com/</a> to get your API key]]></comment>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+                <field id="validate_akismet_key" translate="button_label" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <button_label>Validate API Key</button_label>
+                    <frontend_model>Intenso\Review\Block\Adminhtml\Comment\System\Config\Validateakismetapikey</frontend_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="owner_email_options" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Store Owner Notifications</label>
+                <field id="recipient_email" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Send Emails To</label>
+                    <validate>validate-email</validate>
+                </field>
+                <field id="sender_email_identity" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Email Sender</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Identity</source_model>
+                </field>
+                <field id="enable_new_review_notification" translate="label comment" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>New Review Notification</label>
+                    <comment>If enabled, an email is sent to the store owner when a new review is posted</comment>
+                    <frontend_model>Intenso\Review\Block\Adminhtml\System\Config\Switcher</frontend_model>
+                </field>
+                <field id="new_review_template" translate="label" type="select" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>New Review Notification Template</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                    <depends>
+                        <field id="enable_new_review_notification">1</field>
+                    </depends>
+                </field>
+                <field id="enable_new_comment_notification" translate="label comment" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>New Comment Notification</label>
+                    <comment>If enabled, an email is sent to the store owner when a new comment is posted</comment>
+                    <frontend_model>Intenso\Review\Block\Adminhtml\System\Config\Switcher</frontend_model>
+                </field>
+                <field id="new_comment_template" translate="label" type="select" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>New Comment Notification Template</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                    <depends>
+                        <field id="enable_new_comment_notification">1</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="customer_email_options" translate="label" type="text" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Customer Notifications</label>
+                <field id="sender_email_identity" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Email Sender</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Identity</source_model>
+                </field>
+                <field id="enable_review_published_notification" translate="label comment" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Review Published Notification</label>
+                    <comment>If enabled, an email is sent to the reviewer when the review has been published.</comment>
+                    <frontend_model>Intenso\Review\Block\Adminhtml\System\Config\Switcher</frontend_model>
+                </field>
+                <field id="review_published_template" translate="label" type="select" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Review Published Template</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                    <depends>
+                        <field id="enable_review_published_notification">1</field>
+                    </depends>
+                </field>
+                <field id="enable_comment_notification" translate="label comment" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Review Comment Notification</label>
+                    <comment>If enabled, an email is sent to the reviewer when another user leaves a comment on his/her review.</comment>
+                    <frontend_model>Intenso\Review\Block\Adminhtml\System\Config\Switcher</frontend_model>
+                </field>
+                <field id="review_comment_template" translate="label" type="select" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Review Comment Template</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                    <depends>
+                        <field id="enable_comment_notification">1</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="map_options" translate="label" type="text" sortOrder="7" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Mail After Purchase</label>
+                <field id="enable_map" translate="label comment" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Mail After Purchase</label>
+                    <comment>If enabled, an email is automatically sent to your customers a certain number of days after they have made their purchases.</comment>
+                    <frontend_model>Intenso\Review\Block\Adminhtml\System\Config\Switcher</frontend_model>
+                </field>
+                <field id="sender_email_identity" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Email Sender</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Identity</source_model>
+                    <depends>
+                        <field id="enable_map">1</field>
+                    </depends>
+                </field>
+                <field id="mail_after_purchase_threshold" translate="label comment" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Mail After Purchase Threshold</label>
+                    <comment>This is the number of days the system will wait until sending the Mail After Purchase. 14 days is the recommended threshold.</comment>
+                    <validate>validate-number validate-greater-than-zero</validate>
+                    <depends>
+                        <field id="enable_map">1</field>
+                    </depends>
+                </field>
+                <field id="map_bulk_emails" translate="label comment" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Max Number of Emails</label>
+                    <comment>Set the maximum number of emails sent for orders with multiple products.</comment>
+                    <tooltip>If a customer purchased multiple products in one order, one email will be sent per each product up to the limit configured in this field.</tooltip>
+                    <validate>validate-number validate-greater-than-zero</validate>
+                    <depends>
+                        <field id="enable_map">1</field>
+                    </depends>
+                </field>
+                <field id="map_bulk_interval" translate="label comment" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Mail Interval</label>
+                    <comment>Set the number of days between the sending of each subsequent email for orders with multiple products.</comment>
+                    <tooltip>If a customer purchased multiple products in one order, the mail for the first product will be sent after the number of days set in "Mail After Purchase Threshold" have passed, and subsequent emails will be sent one by one after the number of days configured in this field.</tooltip>
+                    <validate>validate-number validate-greater-than-zero</validate>
+                    <depends>
+                        <field id="enable_map">1</field>
+                    </depends>
+                </field>
+                <field id="map_sort_order" translate="label comment" type="select" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Sort Order</label>
+                    <comment>Choose to request a review for the most expensive product first, or the product with the least reviews, in orders with multiple products. The 2nd email request will be for the second most expensive product and so on.</comment>
+                    <source_model>Intenso\Review\Model\Source\Mapsorter</source_model>
+                </field>
+                <field id="map_template" translate="label" type="select" sortOrder="7" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Mail After Purchase Template</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                    <depends>
+                        <field id="enable_map">1</field>
+                    </depends>
+                </field>
+                <field id="send_map_test" translate="button_label" sortOrder="8" showInDefault="1" showInWebsite="0" showInStore="1">
+                    <button_label>Send Test</button_label>
+                    <frontend_model>Intenso\Review\Block\Adminhtml\Map\System\Config\Sendmaptest</frontend_model>
+                    <depends>
+                        <field id="enable_map">1</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="verified_purchase" translate="label" type="text" sortOrder="8" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Verified Purchase Badge</label>
+                <field id="enable_badge" translate="label comment" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Verified Purchase Badge</label>
+                    <comment>If enabled, a "Verified Purchase" badge is displayed on the review when the customer has bought the product on your store.</comment>
+                    <frontend_model>Intenso\Review\Block\Adminhtml\System\Config\Switcher</frontend_model>
+                </field>
+            </group>
+            <group id="store_owner_comments" translate="label" type="text" sortOrder="9" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Store Owner Comments</label>
+                <field id="name" translate="label comment" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Name</label>
+                    <comment>Choose the name that will be displayed next to your public comments (e.g. your store name)</comment>
+                </field>
+                <field id="expanded_mode" translate="label comment" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Display Your Comments in Expanded Mode</label>
+                    <comment>If enabled, your comments will be visible below the review without clicking the "Comments" link.</comment>
+                    <frontend_model>Intenso\Review\Block\Adminhtml\System\Config\Switcher</frontend_model>
+                </field>
+                <field id="store_owner_reply_template" translate="label" type="select" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Store Owner Comment Email Template</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
